@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a deterministic Role2Reel ZIP archive for release or API upload."""
+"""Create a deterministic Role2Reel Public ZIP archive for release or API upload."""
 
 from __future__ import annotations
 
@@ -217,7 +217,7 @@ def package(output: Path, *, root: Path = ROOT) -> tuple[int, Path]:
                 continue
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in files:
-            relative = Path("role2reel") / path.relative_to(root)
+            relative = Path("role2reel-public") / path.relative_to(root)
             info = zipfile.ZipInfo(relative.as_posix(), date_time=(2026, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
@@ -227,7 +227,7 @@ def package(output: Path, *, root: Path = ROOT) -> tuple[int, Path]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "dist" / "role2reel.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "dist" / "role2reel-public.zip")
     return parser.parse_args()
 
 

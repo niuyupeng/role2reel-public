@@ -10,6 +10,12 @@ FT-01, FT-05 and FT-23–FT-27 now use independently authored synthetic inputs. 
 
 Project-specific observations, transcripts, identifiable source examples and their measurements are excluded from this public record. The retained historical software checks below concern general development contracts; they do not establish that the current synthetic fixtures pass a model run.
 
+## Independent public skill validation — 2026-10-27
+
+The public edition now uses `role2reel-public` for metadata, invocation and archive root. Installation and removal are independent of an existing `role2reel` directory. A regression check extracts the complete archive beside an internal-skill sentinel and verifies that it remains unchanged; metadata checks reject the internal name and ambiguous invocation suffixes.
+
+Local Windows Python 3.11: 237 discovered, 232 passed, 5 skipped because symbolic links were unavailable. Skill metadata, the 160-file repository contract, and the export privacy audit passed. These checks cover edition separation and software behavior; they do not add a new model or media-quality claim.
+
 ## Public candidate validation — 2026-10-27
 
 - Skill metadata and repository validation passed for 160 release files.

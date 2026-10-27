@@ -48,6 +48,6 @@ body:
     id: environment
     attributes:
       label: Model and environment
-      placeholder: Codex model, reasoning setting, Role2Reel commit
+      placeholder: Codex model, reasoning setting, Role2Reel Public commit
     validations:
       required: true

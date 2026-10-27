@@ -271,13 +271,46 @@ class RepositoryTests(unittest.TestCase):
     def test_repository_contract(self) -> None:
         self.assertEqual(validate(ROOT), [])
 
+    def test_public_archive_install_preserves_internal_skill(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            install_root = Path(directory) / "skills"
+            internal = install_root / "role2reel" / "SKILL.md"
+            internal.parent.mkdir(parents=True)
+            internal.write_text("private customization", encoding="utf-8")
+            _, archive_path = package(Path(directory) / "public.zip")
+            with zipfile.ZipFile(archive_path) as archive:
+                archive.extractall(install_root)
+            self.assertEqual(internal.read_text(encoding="utf-8"), "private customization")
+            self.assertEqual(validate(install_root / "role2reel-public"), [])
+
+    def test_public_validator_rejects_internal_or_ambiguous_identity(self) -> None:
+        variants = [
+            ("SKILL.md", "name: role2reel-public", "name: role2reel", "name must be"),
+            ("agents/openai.yaml", "$role2reel-public", "$role2reel", "default_prompt"),
+            ("agents/openai.yaml", "$role2reel-public", "$role2reel-public-extra", "default_prompt"),
+            ("agents/openai.yaml", 'display_name: "Role2Reel Public"', 'display_name: "Role2Reel"', "display_name"),
+        ]
+        with tempfile.TemporaryDirectory() as directory:
+            clone = Path(directory) / "role2reel-public"
+            shutil.copytree(ROOT, clone, ignore=shutil.ignore_patterns(".git", "dist", "__pycache__"))
+            for relative, old, new, error in variants:
+                with self.subTest(relative=relative, identity=new):
+                    target = clone / relative
+                    original = target.read_text(encoding="utf-8")
+                    self.assertIn(old, original)
+                    try:
+                        target.write_text(original.replace(old, new), encoding="utf-8")
+                        self.assertTrue(any(error in item for item in validate(clone)))
+                    finally:
+                        target.write_text(original, encoding="utf-8")
+
     def test_package_contains_skill_entrypoint(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            count, archive_path = package(Path(directory) / "role2reel.zip")
+            count, archive_path = package(Path(directory) / "role2reel-public.zip")
             self.assertGreater(count, 20)
             with zipfile.ZipFile(archive_path) as archive:
                 names = set(archive.namelist())
-            expected = {f"role2reel/{name}" for name in RELEASE_FILES}
+            expected = {f"role2reel-public/{name}" for name in RELEASE_FILES}
             self.assertEqual(count, len(RELEASE_FILES))
             self.assertEqual(names, expected)
 
@@ -297,8 +330,8 @@ class RepositoryTests(unittest.TestCase):
             with zipfile.ZipFile(archive_path) as archive:
                 names = set(archive.namelist())
             self.assertEqual(count, len(RELEASE_FILES))
-            self.assertNotIn("role2reel/.env", names)
-            self.assertNotIn("role2reel/test-results/private-output.txt", names)
+            self.assertNotIn("role2reel-public/.env", names)
+            self.assertNotIn("role2reel-public/test-results/private-output.txt", names)
 
     def test_package_rejects_source_overwrite(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -343,7 +376,7 @@ class RepositoryTests(unittest.TestCase):
 
     def test_validator_handles_external_root_under_ignored_named_ancestor(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            clone = Path(directory) / "dist" / "role2reel"
+            clone = Path(directory) / "dist" / "role2reel-public"
             shutil.copytree(ROOT, clone, ignore=shutil.ignore_patterns(".git", "dist", "__pycache__"))
             self.assertEqual(validate(clone), [])
             broken = clone / "scripts" / "broken.py"
@@ -353,7 +386,7 @@ class RepositoryTests(unittest.TestCase):
 
     def test_validator_ignores_local_forward_run_artifacts(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            clone = Path(directory) / "role2reel"
+            clone = Path(directory) / "role2reel-public"
             shutil.copytree(
                 ROOT,
                 clone,
@@ -366,7 +399,7 @@ class RepositoryTests(unittest.TestCase):
 
     def test_validator_rejects_malformed_yaml_and_template_directory(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            clone = Path(directory) / "role2reel"
+            clone = Path(directory) / "role2reel-public"
             shutil.copytree(ROOT, clone, ignore=shutil.ignore_patterns(".git", "dist", "__pycache__"))
             metadata = clone / "agents" / "openai.yaml"
             metadata.write_text(metadata.read_text(encoding="utf-8") + "\nmalformed: [\n", encoding="utf-8")
@@ -379,7 +412,7 @@ class RepositoryTests(unittest.TestCase):
 
     def test_validator_reports_invalid_utf8_yaml_without_crashing(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            clone = Path(directory) / "role2reel"
+            clone = Path(directory) / "role2reel-public"
             shutil.copytree(ROOT, clone, ignore=shutil.ignore_patterns(".git", "dist", "__pycache__"))
             (clone / "bad.yaml").write_bytes(b"key: \xff\n")
             errors = validate(clone)
@@ -387,7 +420,7 @@ class RepositoryTests(unittest.TestCase):
 
     def test_validator_reports_invalid_utf8_skill_without_crashing(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            clone = Path(directory) / "role2reel"
+            clone = Path(directory) / "role2reel-public"
             shutil.copytree(ROOT, clone, ignore=shutil.ignore_patterns(".git", "dist", "__pycache__"))
             (clone / "SKILL.md").write_bytes(b"---\nname: \xff\n---\n")
             errors = validate(clone)

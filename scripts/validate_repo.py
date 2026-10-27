@@ -101,8 +101,8 @@ def validate(root: Path) -> list[str]:
                 except yaml.YAMLError as exc:
                     errors.append(f"Invalid YAML in SKILL.md frontmatter: {exc}")
                     skill_header = None
-            if not isinstance(skill_header, dict) or skill_header.get("name") != "role2reel":
-                errors.append("SKILL.md name must be role2reel")
+            if not isinstance(skill_header, dict) or skill_header.get("name") != "role2reel-public":
+                errors.append("SKILL.md name must be role2reel-public")
             description = skill_header.get("description") if isinstance(skill_header, dict) else None
             if not isinstance(description, str) or len(description.strip()) < 40:
                 errors.append("SKILL.md description is missing or not discriminating")
@@ -113,9 +113,9 @@ def validate(root: Path) -> list[str]:
         if not isinstance(interface, dict):
             errors.append("agents/openai.yaml must contain an interface mapping")
             interface = {}
-        if "$role2reel" not in str(interface.get("default_prompt") or ""):
-            errors.append("agents/openai.yaml default_prompt must mention $role2reel")
-        if interface.get("display_name") != "Role2Reel":
+        if not re.search(r"\$role2reel-public(?![\w-])", str(interface.get("default_prompt") or "")):
+            errors.append("agents/openai.yaml default_prompt must mention $role2reel-public")
+        if interface.get("display_name") != "Role2Reel Public":
             errors.append("agents/openai.yaml display_name is inconsistent")
 
     placeholder_pattern = re.compile(r"\[(?:TODO|PLACEHOLDER)[^\]]*\]|TODO:", re.I)
@@ -180,7 +180,7 @@ def main() -> int:
         print(f"Validation failed: {len(errors)} error(s).")
         return 1
     count = sum(1 for _ in iter_files(root))
-    print(f"Role2Reel validation passed: {count} files checked.")
+    print(f"Role2Reel Public validation passed: {count} files checked.")
     return 0
 
 

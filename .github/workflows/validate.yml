@@ -1,4 +1,4 @@
-name: Validate Role2Reel
+name: Validate Role2Reel Public
 
 on:
   push:

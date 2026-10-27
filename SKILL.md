@@ -1,13 +1,15 @@
 ---
-name: role2reel
+name: role2reel-public
 description: Turn raw story material into meaning-faithful text, author-chosen fictional life-path reverse inference, CharacterOS-driven natural dialogue, playable scenes, purposeful storyboards, and model-ready video tasks. Also plans AI音乐IP、音乐MV、歌曲截取、抖音/B站/YouTube选题、作品海报与封面、图片资产与生图/视频提示词. Use for 命线反演、类推命式人物前史推演、人物小传或人生轨迹、影视文本人化、人物塑造、剧本或对白改写、分镜、景别与摄影参数匹配、已有提示词参数补全、连续性审校, and video-generation direction; not for generic copyediting unrelated to narrative performance or factual divination about real people.
 ---
 
-# Role2Reel
+# Role2Reel Public
 
 Build the person before the line, the scene before the shot, and the shot before the model prompt. Role2Reel combines two systems rather than replacing one with the other: the existing humanization-to-character-to-scene-to-storyboard-to-video direction chain, and **命线反演** (fictional life-path reverse inference), a visible fictional-prehistory exploration layer that feeds that entire chain.
 
 ## Publication boundary
+
+This is the independently installable public edition, invoked as `$role2reel-public`. Keep its directory separate from any internal `role2reel` installation. It is self-contained: do not import sibling skills, private project profiles or internal history merely because they are available locally. Use the project context supplied for the current task. Public updates must not overwrite the internal edition.
 
 Project work stays in its local project workspace. Updating this general-purpose skill authorizes reusable methods, not publication of project names, stories, lyrics, media, raw logs, private research or conversation history. Read [publication boundary](references/publication-boundary.md) before exports, branch integration or repository updates. Project style, aspect ratio, languages and delivery layouts come from local configuration; templates are configurable examples, not universal private-project defaults.
 
@@ -146,7 +148,7 @@ Make reversible assumptions when they do not alter authorship, plot truth, or pr
 
 - Resolve bundled scripts relative to this `SKILL.md`, not relative to the user's current project directory. Initialize a project without overwriting existing files:
 
-  `python <role2reel-skill-dir>/scripts/init_project.py <project-dir> --characters "A,B" --scene scene-001`
+  `python <role2reel-public-skill-dir>/scripts/init_project.py <project-dir> --characters "A,B" --scene scene-001`
 
 - Use `scripts/audit_humanization.py` before a production-bound rewrite travels downstream; it opens the source, ledger, and draft and checks exact identity, revision, hash, and approval bindings without claiming semantic fidelity. Treat `scripts/audit_dialogue.py` as a warning-oriented linter, not a taste judge. Modern `scripts/audit_storyboard.py` runs must receive the actual meaning, scene, beat, and visual-bible files; legacy v0.1 boards retain structural-only checking. Use `scripts/audit_character_runtime.py` to check that explicit CharacterOS turns bind comprehension and expression resources in separate stages. Use `scripts/audit_continuity.py` and `scripts/audit_video_task.py` for their declared structural contracts. None of these tools can judge psychological truth, actor playability, or cinematic quality.
 - Use `scripts/audit_life_paths.py` to check fact-boundary records and hashes, branch-lock decision bindings, exact duplicate spines, separate biography approval, exact compiled-file hashes and provenance closure, conditional outline review, automatically declared shared-event ledgers, and the deep-biography mechanical contract. It cannot prove author identity, detect unmarked semantic leakage, judge causal density, or establish artistic truth.

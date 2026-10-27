@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/role2reel-banner.svg" alt="Role2Reel — human-first AI video direction" width="100%">
+  <img src="docs/role2reel-banner.svg" alt="Role2Reel Public — human-first AI video direction" width="100%">
 </p>
 
 <p align="center">
@@ -8,11 +8,11 @@
   <img src="https://img.shields.io/badge/Codex-skill-8b5cf6.svg" alt="Codex Skill">
 </p>
 
-# Role2Reel
+# Role2Reel Public
 
 **Build the person. Shape the drama. Design the shot. Generate the reel.**
 
-Role2Reel is a human-first Codex skill that combines two systems in one production chain: the original humanization → CharacterOS → natural dialogue → scene → storyboard → video-direction system, and **命线反演** (fictional life-path reverse inference), a writer-controlled way to infer several possible fictional lives from a character's sparse present.
+Role2Reel Public is a human-first Codex skill that combines two systems in one production chain: the original humanization → CharacterOS → natural dialogue → scene → storyboard → video-direction system, and **命线反演** (fictional life-path reverse inference), a writer-controlled way to infer several possible fictional lives from a character's sparse present.
 
 **先把人立住，再让戏发生，最后才让镜头开机。**
 
@@ -84,6 +84,10 @@ Occupation can supply a tool after that appraisal. It does not get to decide who
 
 ## 公开版与本地项目资料
 
+**独立技能名：`role2reel-public`；调用方式：`$role2reel-public`；安装目录与 ZIP 根目录：`role2reel-public/`。** 内部版继续使用 `role2reel`。两版可独立安装、更新和移除；公开版不依赖内部版，也不自动读取或同步内部资料。仅使用当前任务明确提供的项目上下文。
+
+旧的 `public-2026-10-27` 下载包使用了 `role2reel/` 目录。请改用 [最新独立版](https://github.com/niuyupeng/role2reel-public/releases/latest)，解压到独立的 `role2reel-public/`。如果已有 `role2reel/`，先保留其内容，不要用公开包覆盖或删除内部版。
+
 这个公开仓库提供可独立使用的通用技能、模板、校验脚本和测试。角色身份、公司资料、未发表剧本、聊天记录、实际素材、账号凭证与项目制作约定由使用者保存在自己的项目目录中；不要提交到技能仓库。项目约定优先于通用模板，参考 [项目上下文](references/project-context.md) 与 [公开边界](references/publication-boundary.md)。
 
 除了人物、对白和分镜，公开版也包含：
@@ -101,7 +105,7 @@ Occupation can supply a tool after that appraisal. It does not get to decide who
 Recommended: ask the built-in installer to install this repository.
 
 ```text
-$skill-installer Install the Role2Reel skill from https://github.com/niuyupeng/role2reel-public
+$skill-installer Install the Role2Reel Public skill from https://github.com/niuyupeng/role2reel-public
 ```
 
 For a manual user-scoped install, clone into the current Codex user skill location.
@@ -110,27 +114,27 @@ macOS / Linux:
 
 ```bash
 mkdir -p "$HOME/.agents/skills"
-git clone https://github.com/niuyupeng/role2reel-public.git "$HOME/.agents/skills/role2reel"
-cd "$HOME/.agents/skills/role2reel"
+git clone https://github.com/niuyupeng/role2reel-public.git "$HOME/.agents/skills/role2reel-public"
+cd "$HOME/.agents/skills/role2reel-public"
 ```
 
 Windows PowerShell:
 
 ```powershell
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills" | Out-Null
-git clone https://github.com/niuyupeng/role2reel-public.git "$env:USERPROFILE\.agents\skills\role2reel"
-Set-Location -LiteralPath "$env:USERPROFILE\.agents\skills\role2reel"
+git clone https://github.com/niuyupeng/role2reel-public.git "$env:USERPROFILE\.agents\skills\role2reel-public"
+Set-Location -LiteralPath "$env:USERPROFILE\.agents\skills\role2reel-public"
 ```
 
 Restart or open a new Codex task if the skill is not discovered immediately, then invoke it explicitly:
 
 ```text
-$role2reel 把这段口述整理成人说得出口的对白，再按状态变化做分镜。
+$role2reel-public 把这段口述整理成人说得出口的对白，再按状态变化做分镜。
 ```
 
 The repository root is the skill folder: `SKILL.md`, `agents/`, `references/`, `assets/`, and `scripts/` travel together.
 
-For a manual install, update with `git -C <skill-directory> pull --ff-only`. To uninstall, remove only the `role2reel` directory under `$HOME/.agents/skills` (or `$env:USERPROFILE\.agents\skills` on Windows), then restart Codex. Save or commit local changes before updating or removing the directory.
+For a manual install, update with `git -C <skill-directory> pull --ff-only`. To uninstall, remove only the `role2reel-public` directory under `$HOME/.agents/skills` (or `$env:USERPROFILE\.agents\skills` on Windows), then restart Codex. Save or commit local changes before updating or removing the directory.
 
 ## Use it
 
@@ -139,37 +143,37 @@ Role2Reel routes to the narrowest requested workflow. You do not need to run the
 For a recurring production, maintain a project-local context section using [persistent project context](references/project-context.md). It keeps continuity, source coverage, explicit decisions, dialogue ownership and approved assets discoverable without publishing private project files. See the [integration review](docs/integration-2026-10-02.md) for the consolidated method update.
 
 ```text
-$role2reel 只改错别字和标点，不要润色这段档案访谈。
+$role2reel-public 只改错别字和标点，不要润色这段档案访谈。
 ```
 
 ```text
-$role2reel 根据人物各自知道的信息，写一场有潜台词的两人对白。
+$role2reel-public 根据人物各自知道的信息，写一场有潜台词的两人对白。
 ```
 
 ```text
-$role2reel 从这份大纲、人物小传和已写场景中分离事实、痕迹、未知与冲突，先给我至少三条因果不同的人生路径；等我选择或修改后再继续。
+$role2reel-public 从这份大纲、人物小传和已写场景中分离事实、痕迹、未知与冲突，先给我至少三条因果不同的人生路径；等我选择或修改后再继续。
 ```
 
 ```text
-$role2reel 对这个虚构人物做一次“命线反演”：同一个开场现状，给我四种真正不同的过去，其中至少一条反直觉。先给可读的人生方案，不要替我选，不要展开三万字。
+$role2reel-public 对这个虚构人物做一次“命线反演”：同一个开场现状，给我四种真正不同的过去，其中至少一条反直觉。先给可读的人生方案，不要替我选，不要展开三万字。
 ```
 
 ```text
-$role2reel 把我锁定的人生路径扩写成 deep 级中文人物小传；通过机械审计后，等我批准这份小传的准确 revision 与 body hash，再编译为人物、记忆、关系、共同语境和场景运行资产。
+$role2reel-public 把我锁定的人生路径扩写成 deep 级中文人物小传；通过机械审计后，等我批准这份小传的准确 revision 与 body hash，再编译为人物、记忆、关系、共同语境和场景运行资产。
 ```
 
 ```text
-$role2reel 把这场戏做成 28 秒分镜；按观众需要感知的变化拆镜，不按台词拆镜。
+$role2reel-public 把这场戏做成 28 秒分镜；按观众需要感知的变化拆镜，不按台词拆镜。
 ```
 
 ```text
-$role2reel 把分镜适配成视频生成提示词。逐个锁定参考图、动作视频和声音素材的职责。
+$role2reel-public 把分镜适配成视频生成提示词。逐个锁定参考图、动作视频和声音素材的职责。
 ```
 
 For a persistent production workspace, the installation-independent route is to ask the skill to initialize it:
 
 ```text
-$role2reel 在当前工作目录初始化 my-film 项目，人物是“角色甲、角色乙”，首场戏编号 scene-001。
+$role2reel-public 在当前工作目录初始化 my-film 项目，人物是“角色甲、角色乙”，首场戏编号 scene-001。
 ```
 
 For a direct CLI call after a manual clone, run this from the repository root:
