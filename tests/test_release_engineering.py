@@ -303,6 +303,9 @@ class ReleaseTests(unittest.TestCase):
         with patch.object(builder.package_skill, "RELEASE_FILES", tuple(payload())):
             first = builder.build(repo, "v1.2.3", output)
             self.assertEqual(first, builder.build(repo, "v1.2.3", output))
+            # release_paths resolves its root; the caller must use the same
+            # identity for dot segments and Windows short-name aliases.
+            self.assertEqual(first, builder.build(repo / ".." / repo.name, "v1.2.3", output))
             with self.assertRaisesRegex(ValueError, "tag must equal"):
                 builder.build(repo, "v9.9.9", output)
             (repo / "SKILL.md").write_bytes(b"uncommitted")

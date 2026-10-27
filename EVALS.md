@@ -8,6 +8,8 @@ English installation, updates/rollback, optional tools and actual production usa
 
 Local Windows Python 3.11: **263 tests discovered, 257 passed, 6 skipped** because local symbolic-link creation was unavailable. Windows junction refusal and archive symlink rejection passed. Repository validation and export privacy audit cover **192 allowlisted files**; the verified release adds one generated `.release.json` metadata member. The nine published request/response fingerprints were independently recalculated. The tag workflow runs its four Windows/Ubuntu × Python 3.11/3.13 jobs before publication; the actual workflow run and attached release identify the published result. Earlier counts below are historical.
 
+The first hosted Windows run also exposed an 8.3 short-path alias mismatch in the release builder. It now resolves the repository root consistently before member comparison; the real-Git regression also exercises an equivalent noncanonical path. The failed run remains part of the CI history rather than being described as passing.
+
 No new image, audio or video was generated or accepted. Real audience preference, author adoption, physical timing, per-provider performance and host-UI skill discovery remain separate verification tasks. The full English user/developer guides do not imply that every specialized reference has been translated from Chinese.
 
 ## Previous public quality revision — 2026-10-27

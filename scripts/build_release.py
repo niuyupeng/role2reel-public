@@ -25,6 +25,8 @@ def git(root: Path, *args: str) -> bytes:
 
 
 def committed_payload(root: Path, tag: str) -> tuple[str, str, dict[str, bytes]]:
+    # Match release_paths() normalization, including Windows 8.3 aliases.
+    root = root.resolve()
     version = (root / "VERSION").read_text(encoding="utf-8").strip()
     if not re.fullmatch(r"[0-9]+(?:\.[0-9]+){2,3}", version) or tag != "v" + version:
         raise ValueError("Release tag must equal v + VERSION")
