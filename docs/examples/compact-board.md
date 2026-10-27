@@ -11,6 +11,7 @@ Give me a compact three-shot storyboard in English, totaling 9 seconds. A floris
 
 ## Original output
 
+<!-- original-output-start -->
 # Three-shot discussion board — 9 seconds
 
 Provisional blocking: the florist is on the left and her friend on the right, beside her behind the plain table. The only prop is the single empty vase, initially on the table in front of the florist. Keep this screen direction throughout.
@@ -23,4 +24,4 @@ Provisional blocking: the florist is on the left and her friend on the right, be
 
 No other dialogue, new props, music, captions or subtitles. This is a text board for discussion; timing is an estimate, and no photo references or production documents are assumed.
 
-
+<!-- original-output-end -->
