@@ -1,0 +1,41 @@
+schema_version: 1
+project:
+  id: null
+  name: null
+  aliases: []
+  active_continuity: null
+  local_section: null
+  publication_scope: local_only
+continuities: []
+sources: []
+# Each source: id, continuity_id, location, revision_or_hash, archive_member, locator,
+# inspected_scope, inspected_at, group_association_evidence, limitations.
+claims: []
+# Each claim: id, continuity_id, subject_id, statement, status, source_refs,
+# interpretation_boundary, decision_ref, applicable_scope, supersedes.
+# status: source_observed | explicit_author_choice | creative_proposal |
+# disputed | superseded | unknown. Empty fields are not approval.
+character_ids: []
+asset_index: []
+# Each asset: id, continuity_id, exact_media_binding, inspected_scope,
+# approval_ref, allowed_properties, excluded_properties, applicable_scope.
+speaker_corrections: []
+unresolved_conflicts: []
+coverage:
+  inspected: []
+  partially_inspected: []
+  inaccessible: []
+  leads_not_read: []
+active_handoff:
+  deliverable: null
+  continuity_id: null
+  source_refs: []
+  character_refs: []
+  dialogue_and_audio_bindings: []
+  # Each binding: source_ref, speaker_id, exact_text, audio_revision_or_hash,
+  # authorized_purpose, authorization_ref, source_interval, output_interval,
+  # actual_review_scope, generated_result_acceptance_status.
+  asset_refs: []
+  applicable_corrections: []
+  blockers: []
+  invalidated_dependents: []

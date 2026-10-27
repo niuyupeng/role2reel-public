@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+dist/
+*.zip
+test-results/
+outputs/
+.DS_Store
+Thumbs.db
+
+# Local project material never belongs in the general skill release.
+private/
+projects/
+local-audit/
+*.bundle
+*.log
+local-private/
+.env
+.env.*
+*.local.json
+*.local.yaml

@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "purpose": "景别匹配的制作起点字典，由助手结合主体尺度、观看任务、距离、有效画幅和已有约束选择一套可执行方案。不是固定光学定律、案例频率排名或机型实测。",
+  "reference_format": "35mm全画幅参考；视频需核实所用模式的有效成像区域。",
+  "focal_basis": "35mm_full_frame_reference_not_universal_actual_lens",
+  "units": {"focal_length": "mm", "aperture": "f-number"},
+  "profiles": [
+    {"id":"extreme_wide","labels":["大全景","大远景","extreme wide shot","extreme long shot","ELS","EWS"],"coverage":"空间为主，人物很小；清楚交代完整行动空间和纵深。","focal_range_mm":[18,28],"focal_start_mm":24,"aperture_range_f":[5.6,8],"aperture_start_f":5.6,"focus":"按关键地标和角色所处距离安排；不保证从最近物体到无穷远全部同锐。","camera_method":"先用固定机位；需要揭示时缓慢横移或后拉，写清起点、路径和结束构图。","height":"按空间与观看目的选择，低位须核查前景遮挡。","exceptions":"夜景可评估更大光圈或补光；长焦环境构图也可成立。超广角不得无故拉长边缘人物。"},
+    {"id":"long","labels":["远景","long shot","LS"],"coverage":"完整人物融入环境，能读懂行动路线和与环境的关系。","focal_range_mm":[28,50],"focal_start_mm":35,"aperture_range_f":[4,8],"aperture_start_f":5.6,"focus":"主体及与动作相关的环境位置清楚，远背景按距离自然递减。","camera_method":"平视或有目的的高低机位，固定或随主体平稳跟随。","height":"主体眼线附近为起点，环境职责需要时调整。","exceptions":"只需身份轮廓时不强求脸部微表情；不要自动添加无人空镜。"},
+    {"id":"full","labels":["全景","全身景","full shot","FS"],"coverage":"完整身体、完整群体或完整动作，保留脚、耳、尾及动作余量。","focal_range_mm":[28,50],"focal_start_mm":35,"aperture_range_f":[4,5.6],"aperture_start_f":4,"focus":"完整动作主体及必要持物可读，多人前后错位时增加所需景深。","camera_method":"固定、侧向跟拍或按行动路径平稳移动；摄影机不穿越障碍。","height":"依主体结构和比例选择，动物不能套成人机位高度。","exceptions":"全景不必等于广角；空间不足时调整可达机位与构图，不缩放角色身份。"},
+    {"id":"medium_long","labels":["中远景","膝上景","medium long shot","MLS","three-quarter shot"],"coverage":"膝部或大腿附近以上，兼顾上肢动作和关键道具。","focal_range_mm":[35,70],"focal_start_mm":50,"aperture_range_f":[4,5.6],"aperture_start_f":4,"focus":"主体动作与道具，必要接触点不能落在不可读虚焦。","camera_method":"固定或轻微前跟；保留动作方向的空间。","height":"按动作重心及主体眼线选择。","exceptions":"避免无意卡在关节处裁切；四足动物按实际可见身体范围重新描述。"},
+    {"id":"medium","labels":["中景","medium shot","MS"],"coverage":"腰部以上或同等尺度的关系构图；双人对话以实际同框关系为准。","focal_range_mm":[35,65],"focal_start_mm":50,"aperture_range_f":[2.8,5.6],"aperture_start_f":4,"focus":"表演主体和说话口部；双方都需清楚时核对前后距离，不能只写双人都锐利。","camera_method":"平视固定或有目的的缓慢推进；不因对话自动切镜。","height":"对主体眼线或关系任务取位，多主体不能同时假定不同眼高都是平视。","exceptions":"两人不在同一焦平面时需调整站位、光圈或焦点方案。"},
+    {"id":"medium_close","labels":["中近景","胸像","medium close-up","MCU"],"coverage":"胸部附近以上，表演为主并保留少量环境。","focal_range_mm":[50,85],"focal_start_mm":65,"aperture_range_f":[2.8,4],"aperture_start_f":4,"focus":"眼睛及说话口部，转头和前后摆动仍须可读。","camera_method":"固定或小幅跟随，推进只用于需要强调的反应。","height":"眼线附近；高低角度必须有明确目的。","exceptions":"不能误写为胸部或肩部以下；不是把所有背景彻底抹去。"},
+    {"id":"close","labels":["近景","头肩景","close shot","CS"],"coverage":"头肩或肩部以上，读面部反应。","focal_range_mm":[65,105],"focal_start_mm":85,"aperture_range_f":[2.8,5.6],"aperture_start_f":4,"focus":"近侧眼睛优先，兼顾剧情需要的另一眼、鼻口与口型。","camera_method":"固定或极缓推进，保持自然呼吸和头部活动余量。","height":"接近主体眼线；动物眼线按其实际姿态。","exceptions":"侧脸、向镜头前移或需要读唇时，不能一律极浅景深。"},
+    {"id":"close_up","labels":["特写","close-up","CU"],"coverage":"面部、手爪操作或单件道具；先明确哪一种。","focal_range_mm":[65,105],"focal_start_mm":85,"aperture_range_f":[2.8,5.6],"aperture_start_f":4,"focus":"面部以表演为主；接触镜以接触点、支撑和动作结果为主。","camera_method":"固定、小幅跟随或有明确触发的移焦。","height":"贴合面部眼线或操作平面，不固定成人身高。","exceptions":"默认数值只作普通近摄起点；物件按工作距离和最近对焦能力另选，必要时走微距分支。"},
+    {"id":"extreme_close_up","labels":["大特写","极特写","extreme close-up","ECU"],"coverage":"眼睛、皮肤、指尖、微小纹理或结构，明确需要清楚的深度。","focal_range_mm":[85,135],"focal_start_mm":100,"aperture_range_f":[4,8],"aperture_start_f":5.6,"focus":"限定观看目标；结构跨越深度时不能只留下一个不可理解的清晰点。","camera_method":"稳定机位，必要时精确小幅移焦；不以浅景深掩盖结构。","height":"按目标表面与工作距离决定。","exceptions":"微距优先核放大倍率、最近对焦距离与工作距离；可从60–105mm微距镜、f/5.6–f/11评估，不能承诺全深度清晰。"}
+  ]
+}

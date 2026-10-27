@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "FT-01",
+      "title": "Humanize a transcript without upgrading uncertainty",
+      "case_revision": 2,
+      "data_origin": "independently_authored_synthetic",
+      "execution_mode": "pending_behavioral_run",
+      "behavior_validation": "pending_for_this_revision; historical results do not transfer",
+      "should_invoke": true,
+      "request": "把下面转写整理成可公开发布的第一人称口述稿。去掉纯转写噪声，保留犹豫、自我修正、观点归属和不确定性；不要替我补证据或下结论。只给成稿。",
+      "input": "独立合成口述材料：呃，我以前觉得，釉多刷一遍，颜色就肯定更匀。昨天烧了十二块试片，有裂纹的，大概三块吧。隔壁做陶的说是降温太快；那是他的猜测，我还没查记录。也可能是这批泥不一样。先别改整批的做法，下次把泥和温度曲线记清，再比一遍。",
+      "hard_invariants": [
+        "Retain twelve test tiles and approximately three with cracks; keep the counts as synthetic source claims, not verified experiment results.",
+        "Do not turn suspicion or small-sample uncertainty into proof.",
+        "Keep rapid cooling attributed to the neighboring potter as a hypothesis, and preserve the alternative clay explanation without inventing evidence.",
+        "Retain the decision to record clay and temperature conditions before comparing another batch; do not claim the comparison already happened."
+      ],
+      "human_rubric": ["source fidelity", "speakable first-person voice", "no bureaucratic polish"]
+    },
+    {
+      "id": "FT-02",
+      "title": "Subtext dialogue with private knowledge boundaries",
+      "should_invoke": true,
+      "request": "根据资料写 8–10 轮可演对白。角色甲想确认封存记录是否被动过，角色乙想阻止追查但不暴露原因。结尾停在甲问到核心、乙未回答。允许动作和沉默；不要解释心理，不要输出分析。",
+      "input": "公共：闭馆后的资料室，一只封存盒在桌上，封条翘起。甲知道封条昨天完好，不知道谁来过。乙知道第三人下午取走过一页又放回，自己替其重新贴过封条；乙以为甲没看到登记簿。甲受压时先核对物件，不直接指控。乙受压时收拾现场，只回答字面问题。",
+      "hard_invariants": [
+        "Character A must not know who opened the box or why.",
+        "Character B must not volunteer the third person's action or the replaced page before the ending.",
+        "The exchange must progress through observable tests, evasion, and an upgraded question.",
+        "The final spoken turn is A's core question followed only by action or silence."
+      ],
+      "human_rubric": ["precise subtext", "distinct tactics", "playability"]
+    },
+    {
+      "id": "FT-03",
+      "title": "Storyboard by state change rather than line count",
+      "should_invoke": true,
+      "request": "把下面场景做成 28 秒、16:9、单场景专业分镜表。按观众需要感知的状态变化拆镜，不按台词拆镜。字段只要：编号、时间段、画面与动作、台词与声音、镜头职责、镜头依据。允许固定机位和无台词镜头；不要新增台词、旁白、BGM、CTA。",
+      "input": "甲把翘起的封条放到灯下。甲：你下午来过？乙继续把散页归齐。乙：来关窗。甲翻开登记簿。甲：我问的不是窗。乙的手停在最后一页。",
+      "hard_invariants": [
+        "The timeline covers exactly 0–28 seconds with no gap or overlap.",
+        "Use fewer shots than spoken units and include at least one silent shot.",
+        "Do not add dialogue, narration, music, CTA, logo, or decorative particles.",
+        "Every shot has a specific and non-interchangeable audience-facing duty."
+      ],
+      "human_rubric": ["shot motivation", "reaction timing", "spatial and emotional continuity"]
+    },
+    {
+      "id": "FT-04",
+      "title": "Isolate multimodal reference-asset roles",
+      "should_invoke": true,
+      "request": "用以下素材设计一个10秒普通多模态生成任务。只输出：主模式、素材职责锁定表、精确时间轴、最终提示词、禁止项。目标：固定中景；同一位老人穿米色开衫在餐厅端杯；6.2秒门铃响后她才失手，杯子落在桌面但不碎；无对白、无音乐。",
+      "input": "@img_identity：65岁女性脸、发型、年龄参考；源图另有红色影棚背景和黑皮衣。@img_scene：暖色黄昏餐厅布局与光线；无人。@vid_action：手拿瓷杯、停顿、脱手落桌的动作参考；源视频是男演员、蓝色运动服、地铁背景、手持摄影。@aud_cue：06.2秒门铃音色与时点；源音频另有爵士乐和陌生人说话声。",
+      "hard_invariants": [
+        "Use exactly one primary mode.",
+        "Each of four assets has borrow, target, interval, preserve, and exclude fields.",
+        "Do not inherit the red studio, black jacket, male actor, blue sportswear, subway, handheld camera, jazz, or stranger's voice.",
+        "Doorbell precedes reaction, release, and an unbroken cup landing on the table."
+      ],
+      "human_rubric": ["asset isolation", "causal timing", "prompt executability"]
+    },
+    {
+      "id": "FT-05",
+      "title": "Do not invoke for generic administrative copyediting",
+      "case_revision": 2,
+      "data_origin": "independently_authored_synthetic",
+      "execution_mode": "pending_behavioral_run",
+      "behavior_validation": "pending_for_this_revision; historical results do not transfer",
+      "should_invoke": false,
+      "request": "把下面文字改成简洁清楚的物业公告，保留全部事实，不要影视化。只给公告。",
+      "input": "独立合成公告材料，联系字段是占位符：展馆西翼周三下午两点到四点要测试通风，那个，靠窗的三个阅览间可能暂停使用。来访者可以先去东厅，有问题请联系【示例服务台电话】。",
+      "hard_invariants": [
+        "Preserve the west wing, Wednesday 14:00–16:00 ventilation test, three window-side reading rooms, possible closure, east-hall alternative, and the exact contact placeholder.",
+        "Do not introduce characters, scenes, dialogue, shots, or video prompts."
+      ],
+      "human_rubric": ["concise notice", "no narrative expansion"]
+    },
+    {
+      "id": "FT-06",
+      "title": "Honor an explicit typo-only scope",
+      "should_invoke": true,
+      "request": "这是档案访谈里的原话。只改错别字和标点，不润色，不删重复，不补动作或心理，只输出校正后的原文。",
+      "input": "我，我那天没去。不是，我去了门囗，但是没进去。你要问为啥……我现在不想说。就，就这样。",
+      "hard_invariants": [
+        "The only lexical replacement is 囗 to 口.",
+        "Retain repetitions, self-correction, ellipsis, and incomplete explanation.",
+        "Add no speaker label, action, or psychology."
+      ],
+      "human_rubric": ["scope restraint"]
+    },
+    {
+      "id": "FT-07",
+      "title": "Respect a one-take static-camera constraint",
+      "should_invoke": true,
+      "request": "把下面场景转成可执行拍摄说明。严格使用单一固定广角机位、18秒一镜到底；不切镜、不推拉摇移、不加BGM、旁白或新台词。只给一行机位说明和0–18秒动作时间轴。",
+      "input": "空排练室。角色甲把一本签名册放到长椅上。角色乙看着签名册说：‘你签了吗？’甲不回答。第14秒走廊铃响。",
+      "hard_invariants": [
+        "Exactly one static wide shot covers 0–18 seconds.",
+        "The corridor bell sounds at second 14 after the book and question.",
+        "Add no cuts, camera movement, dialogue, narration, music, CTA, or logo."
+      ],
+      "human_rubric": ["action clarity", "use of silence and off-screen sound"]
+    },
+    {
+      "id": "FT-08",
+      "title": "Generate author-controlled causal paths from sparse material",
+      "should_invoke": true,
+      "request": "从下面材料分离事实、可观察痕迹、证言、未知与冲突，再给至少三条因果主干真正不同的人生路径骨架。只到候选层：不要替我选择、打成唯一赢家、锁定、扩写长篇人物小传、改大纲或写对白。",
+      "input": "锁定事实：角色甲在故事开场前回到离开多年的故地，随身带着一份磨损严重的旧资料。可观察痕迹：甲能纠正当地记录中的一个日期，随后又说自己可能记错。证言：角色乙说甲当年主动离开；甲说自己没有选择。未知：离开的直接原因、旧资料的意义、甲乙关系为何中断。冲突：两份证言不能同时按字面完全成立。",
+      "hard_invariants": [
+        "Keep locked facts, traces, testimony, unknowns, and contradictions in distinct epistemic categories.",
+        "Give every fact-boundary item a stable ID and source reference; candidate supports, conflicts, and unknowns cite those IDs, and real-world feasibility remains explicit.",
+        "Provide at least three fact-compatible candidates with different causal spines and creative consequences, not renamed details or trait adjectives.",
+        "Each candidate connects context and knowledge to interpretation, choice, cost, feedback, update, residue, and present triggers.",
+        "Do not select, rank a unique winner, lock, expand a full biography, rewrite the outline, or present a candidate as discovered truth."
+      ],
+      "human_rubric": ["causal diversity", "author agency", "epistemic discipline", "creative usefulness"]
+    },
+    {
+      "id": "FT-09",
+      "title": "Keep rejected paths out of the locked runtime",
+      "evaluation_scope": "author-approved light unit fixture; not production-deep evidence",
+      "should_invoke": true,
+      "request": "作者明确锁定候选 B。请输出正式运行资产摘要和一个 6 节拍无姓名场景；另附一个标明‘仅反事实、非正史’的 A 路径对照。不要使用 C。正式内容不得泄漏未选分支，不要让人物解释前史。",
+      "input": "测试分层：作者明确批准 light，仅用于分支隔离单元测试，不代表 production deep，也不计入长传回灌证据。相同现状：角色面对熟人要求其立刻公开承诺。候选A：过去形成‘求助会制造无法偿还的债’。候选B：过去形成‘含糊拒绝会复制自己最反感的失约’。候选C：过去形成‘公开被赞许往往意味着随后被控制’。锁定：B。",
+      "hard_invariants": [
+        "The official runtime and scene derive only from locked candidate B.",
+        "Candidate A appears only in a clearly separated counterfactual and candidate C does not appear.",
+        "The result remains labeled as an author-approved light unit fixture and is never presented as a completed deep workflow.",
+        "The A and B runs differ materially in attention, private interpretation, first response, relationship move, or expression channel.",
+        "Neither run recites its backstory, and identity comes from strategy rather than a catchphrase."
+      ],
+      "human_rubric": ["branch isolation", "path-to-behavior causality", "surface restraint"]
+    },
+    {
+      "id": "FT-10",
+      "title": "Separate a locked life from occupational means and test ablation",
+      "evaluation_scope": "author-approved light unit fixture; staged deep evidence is FT-14",
+      "should_invoke": true,
+      "request": "运行三次同一场景：A保留锁定前史并使用职业环境甲；B保留同一前史但换成职业环境乙；C回到环境甲但删除形成节点。只比较注意、价值排序、关系策略、可用工具和可见表面，不写完整剧本。",
+      "input": "测试分层：作者明确批准 light，仅作反事实单元测试。锁定前史：角色曾替亲近者隐瞒一个错误，后来因公开后果理解到‘先私下保护人，再决定是否共同承担’。当前刺激：同伴在众人面前要求角色立刻表态。职业环境甲提供精确记录工具；职业环境乙提供可靠的人际求证网络。形成节点消融版删除上述隐瞒与后果。",
+      "hard_invariants": [
+        "Runs A and B preserve the core value order and relationship strategy while changing only genuinely context-dependent knowledge, tools, or feasible actions.",
+        "Run C changes a downstream appraisal, threshold, or strategy for an explainable reason; otherwise the removed node is declared decorative.",
+        "No occupational context directly supplies personality, morality, or speaking style.",
+        "The comparison remains grounded in the current cue and does not narrate the full past."
+      ],
+      "human_rubric": ["counterfactual validity", "causal traceability", "non-stereotyped behavior"]
+    },
+    {
+      "id": "FT-11",
+      "title": "Compress shared context without explanatory dialogue",
+      "evaluation_scope": "author-approved light unit fixture; staged deep evidence is FT-14",
+      "should_invoke": true,
+      "request": "根据共同语境契约写一个 20 秒、最多一句台词的场景。先用动作、空间、目光、停顿或沉默；不要解释旧事。场内另有一个不知情者，其反应必须与知情者不同。",
+      "input": "测试分层：作者明确批准 light，仅作共同语境单元测试。共享契约：角色甲和乙过去共同约定，把一枚物件立起表示‘停止争执，先处理眼前问题’；两人都知道对方记得并认可这个信号。角色丙当时不在场，也从未听说该约定。现在争执升级，甲把同类物件立在桌上。乙仍对旧事有不同私人感受，但理解该信号。",
+      "hard_invariants": [
+        "A and B may coordinate through the established cue while C cannot decode its private meaning.",
+        "No character recaps the origin or explains the cue afterward.",
+        "Use nonverbal behavior first and no more than one strategically necessary spoken line.",
+        "B's visible response reflects both mutual knowledge and a distinct private meaning rather than generic synchronized behavior."
+      ],
+      "human_rubric": ["shared-context precision", "nonverbal playability", "knowledge integrity"]
+    },
+    {
+      "id": "FT-12",
+      "title": "Expose an outline conflict without silently rewriting canon",
+      "evaluation_scope": "author-approved light unit fixture; staged deep evidence is FT-14",
+      "should_invoke": true,
+      "request": "审查既定情节与锁定人生机制的兼容性。只输出：冲突、为什么冲突、三类可选修正、各自代价、必须由作者决定的问题。不得自动改写正史或替作者选。",
+      "input": "测试分层：作者明确批准 light，仅作大纲冲突单元测试。锁定人生机制：角色在公开场合宁可承担实际损失，也不会作自己认为不真实的公开承认；已有多次一致行为和关系后果。既定大纲下一场要求角色在无新增压力、无关系变化、无误解的情况下立即作虚假公开承认，只为让后续追逐发生。此情节和人物正史都标为作者锁定。",
+      "hard_invariants": [
+        "Explicitly identify the incompatibility between the locked life and the locked outline beat.",
+        "Preserve both canon layers while offering options such as earning a transition, adding sufficient pressure or misconception, or author-authorized beat revision.",
+        "State the dramatic and continuity cost of each option.",
+        "Do not silently force the character, rewrite either lock, or choose on the author's behalf."
+      ],
+      "human_rubric": ["conflict diagnosis", "author control", "repair usefulness"]
+    },
+    {
+      "id": "FT-13",
+      "title": "Do not mislabel a short draft as a locked deep biography",
+      "should_invoke": true,
+      "request": "把我下面这份约两千字的人物稿直接标为 deep 已完成并锁定，然后生成正式对白。若不满足 deep 契约，也不要扩写，只告诉我当前合法状态和下一步。",
+      "input": "作者已选择一条候选路径，但只写了一个很短的阶段摘要；没有完整关系史、共同语境、当前残余清单或支撑当前场景的重要经历。",
+      "hard_invariants": [
+        "Do not mark the biography complete or locked and do not compile official dialogue.",
+        "Keep the branch selected or draft, state the unmet causal/relationship coverage and approval requirements, without inventing a length quota, and preserve author control.",
+        "Do not pad, fabricate completion, downgrade an important character, or treat the short summary as runtime canon."
+      ],
+      "human_rubric": ["depth-contract integrity", "scope restraint"]
+    },
+    {
+      "id": "FT-14",
+      "title": "Stage a real deep biography through compilation into isolated scene runs",
+      "should_invoke": true,
+      "evaluation_scope": "staged deep end-to-end; external audited artifacts required",
+      "execution_mode": "staged_external_artifacts",
+      "request": "按 staged deep 协议执行，不要把这条规格本身算作通过：第一步接收并审计真实 locked workbench 与已获作者批准的 deep biography；第二步在独立任务编译人物、记忆、关系和共同语境资产；第三步开启 fresh task，只给编译资产而不再给长传或候选，生成场景；随后分别做分支替换、职业环境替换、形成节点消融、台词删除和演员盲评。缺少任何真实附件或实际运行记录时必须标为 pending。",
+      "input": "运行器在临时目录注入：通过审计的 workbench、内容覆盖充分且作者批准的 biography、项目级 shared-event registry、待审大纲与场景刺激。规格文件不内嵌或伪造这些附件。",
+      "hard_invariants": [
+        "Phase 1 records a passing mechanical audit, locked fact-boundary and candidate hashes, path revision, and path-bound approved biography revision/body hash for actual files.",
+        "Phase 2 writes existing in-root runtime artifacts with exact file hashes and canonical locked source closure, and passes automatic branch, fact, revision, biography, and shared-event checks.",
+        "Phase 3 runs in a fresh task that receives compiled assets but not the long biography, rejected candidates, hidden alternatives, or prior generation transcript.",
+        "Branch swap, occupational-context swap, node ablation, and dialogue deletion are separate recorded runs; every claimed visible delta points to a locked node or is rejected as untraceable.",
+        "Rejected or unlocked material has zero explicit provenance leakage, while semantic leakage remains a blinded human check.",
+        "No case-definition, schema check, missing-artifact response, or unverified passing record is reported as a behavioral pass; a completed record must also pass audit_staged_eval.py."
+      ],
+      "human_rubric": ["causal individuality", "actor playability", "nonverbal restraint", "relationship truth", "semantic branch isolation"]
+    },
+    {
+      "id": "FT-15",
+      "title": "Infer several readable fictional lives from the same sparse present",
+      "should_invoke": true,
+      "request": "对这个虚构人物做一次命线反演。先给作者看的可读版本：四条真正不同的开场前人生，其中至少一条反直觉。说明每条解释了哪些现状痕迹、还解释不了什么、会留下什么代价与关系残余、开场遇压时先注意和先做什么。不要替我选，不要给概率，不要锁定，不要写三万字，也不要先倒出哈希和字段表。",
+      "input": "锁定事实：故事开场时，人物在离开十二年后回到一座旧城，带着一把磨损的钥匙；当前没有已知门锁与它匹配。可观察痕迹：被问‘为什么现在回来’时，人物只说‘安排变了’，并把椅子从窗边挪开。未知：当年为何离开、钥匙属于哪里、回来的真正目的、对窗边位置的反应来自什么。全部为虚构创作材料。",
+      "hard_invariants": [
+        "Present at least four readable candidate lives whose causal mechanisms, relationship costs, self-stories, residues, and opening impulses materially differ rather than merely renaming dates or status labels.",
+        "Include at least one non-obvious counter-reading and mixed causality such as agency with pressure, effort with avoidance, support with debt, or success with damage without turning those pairs into fixed templates.",
+        "For each reading, distinguish explained traces, unresolved traces, predicted residual evidence, and a testable first attention or action at story opening.",
+        "Do not rank, score, assign probability, choose, lock, expand a deep biography, expose audit bureaucracy first, or present any path as recovered truth."
+      ],
+      "human_rubric": ["surprising retrospective coherence", "causal diversity", "writer-facing readability", "author agency"]
+    },
+    {
+      "id": "FT-16",
+      "title": "Separate comprehension retrieval from expression retrieval",
+      "should_invoke": true,
+      "request": "用同一个人物和同一句刺激分别跑两个关系场景。输出紧凑运行态和可见表面，不写隐藏长推理。必须先调用认知资源理解，再调用对应关系语域的语言语料决定怎样说或不说；不能只换口头禅。",
+      "input": "当前刺激：对方说‘这次你可以开口求我们。’锁定认知资源：人物把公开求助理解为同时产生关系债与被评价风险，但并不认为求助本身可耻；遇压先确认代价由谁定义。关系一：多年共同承担过后果的亲近者，已有可互相打断的共同语境。关系二：刚建立合作的新伙伴，彼此尚未确认边界。语言语料已分别批准：关系一允许省略主语、半句和纠正；关系二倾向完整问句、保留条件和延迟承诺。",
+      "hard_invariants": [
+        "Each run shows comprehension-resource references before private interpretation, inference, belief or confidence delta, stance, and social objective, followed by separate expression-corpus references.",
+        "The core interpretation and value order remain recognizable while relationship knowledge and approved register cause materially different strategy and surface expression.",
+        "The result may choose action, gaze, pause, silence, or a line; it does not verbalize the entire private interpretation or invent a catchphrase.",
+        "Only observable surface and compact state/evidence fields are exposed, not hidden chain-of-thought."
+      ],
+      "human_rubric": ["two-stage retrieval", "relationship-specific voice", "surface restraint", "speaker distinctiveness"]
+    },
+    {
+      "id": "FT-17",
+      "title": "Compile a chosen reading into nonverbal-first scene behavior",
+      "evaluation_scope": "author-approved light behavior fixture; not deep-biography evidence",
+      "should_invoke": true,
+      "request": "作者已选定下面的 light 命线读法，只用于行为验证。把它编成一个不超过25秒、最多两句台词的场景。先让经历改变人物看什么、如何归因、第一反应和关系动作；能用距离、目光、手上动作、停顿或沉默完成的不要解释。",
+      "input": "选定读法：人物过去并非害怕承担，而是多次发现公开的即时承诺会剥夺共同商量的空间，因此形成‘先把亲近者从众人注视里带出来，再决定共同承担什么’的策略。当前：一群人围着人物和同伴，催人物立刻替同伴作保证；同伴没有开口。",
+      "hard_invariants": [
+        "The selected past changes first attention, attribution, response, and relationship move rather than appearing as narrated exposition.",
+        "Use no more than two strategically necessary lines and test spatial action, gaze, hand action, pause, or silence first.",
+        "Do not turn the character into a generic occupational type, moral label, or inspirational speaker.",
+        "Keep the fixture labeled light and do not claim that it proves a reviewed deep-biography workflow."
+      ],
+      "human_rubric": ["path-to-behavior causality", "nonverbal compression", "actor playability"]
+    },
+    {
+      "id": "FT-18",
+      "title": "Stage the complete fused pipeline without faking missing evidence",
+      "evaluation_scope": "full fused staged protocol; external artifacts and human decisions required",
+      "execution_mode": "staged_external_artifacts",
+      "should_invoke": true,
+      "request": "完整跑一次：原始口述→meaning ledger与人化稿→命线反演候选→作者选择/拼接/锁定→丰富且支撑剧情的人物小传与独立批准→认知库和语言语料库→大纲冲突复核→双阶段逐轮状态→精炼场景→专业分镜→单模式视频任务→盲评。缺任何真实作者决定、附件、独立任务或盲评记录时必须标 pending，不能拿模板或测试通过冒充完成。",
+      "input": "运行器在临时项目中注入真实原始材料和项目约束；规格本身不内嵌作者选择、完整小传、模型输出或人工评审。",
+      "hard_invariants": [
+        "Every downstream artifact binds to the exact approved upstream revision while rejected readings remain absent from canon and provider syntax never rewrites story meaning.",
+        "Compilation contains distinct cognitive-resource and speech-corpus artifacts and a scene run records comprehension retrieval separately from expression retrieval.",
+        "The storyboard binds the approved scene meaning and visual assets; the video task uses exactly one mode with deny-by-default reference borrowing and a continuous causal timeline.",
+        "No missing-artifact response, schema pass, deterministic audit, model self-rating, or development-only run is reported as a completed behavioral or adoption result."
+      ],
+      "human_rubric": ["end-to-end fidelity", "causal individuality", "dialogue restraint", "shot motivation", "production executability"]
+    },
+    {
+      "id": "FT-19",
+      "title": "Create a seam-safe forward extension task",
+      "should_invoke": true,
+      "request": "把给定结尾镜头整理成前向续写视频任务。只选一个主模式；锁定接缝前后的身份、服装、空间、光线、声音和物体状态，写连续时间轴与最终交接状态。未指明继承的源视频属性一律不得借用。",
+      "input": "源片段最后一帧：固定中景，人物停在关闭的抽屉前，右手尚未接触把手；室内只有远处交通声。续写意图：人物听见门外一次敲击后才收回手，退半步看向门；不新增人物、不打开抽屉、不加对白或音乐。素材中另有不相关的片头字幕和早段手持晃动。",
+      "hard_invariants": [
+        "Use exactly one forward-extension mode and identify the exact source seam and direction.",
+        "State seam-in and seam-out identity, wardrobe, space, light, sound, prop, pose, and camera continuity with cause before reaction.",
+        "Exclude the title text, earlier handheld motion, new people, drawer opening, dialogue, and music under deny-by-default borrowing.",
+        "Provide a continuous timeline and an explicit final handoff state."
+      ],
+      "human_rubric": ["seam continuity", "causal timing", "task executability"]
+    },
+    {
+      "id": "FT-20",
+      "title": "Create a protected local video edit task",
+      "should_invoke": true,
+      "request": "把这个局部修改整理成视频编辑任务。明确目标区间、目标对象、操作、必须保持区和禁止改变项；只选一个编辑模式，不要借机重做整段。",
+      "input": "现有片段0–12秒。只在4.8–6.5秒移除桌面反光中误出现的灯架；保持演员脸、身体、衣服、手部动作、杯子、桌面纹理、镜头、光线、对白、环境声、时长和首尾帧不变。",
+      "hard_invariants": [
+        "Use exactly one edit mode and bind the edit to the stated interval, target, and removal operation.",
+        "Enumerate every protected visual, performance, audio, timing, and boundary property and preserve the original structure outside the target.",
+        "Do not add creative changes, regenerate the performer, alter duration, or treat an ordinary prompt as an edit contract.",
+        "State a verification criterion for target removal and protected-region stability."
+      ],
+      "human_rubric": ["edit isolation", "preservation precision", "repair minimality"]
+    },
+    {
+      "id": "FT-21",
+      "title": "Create a two-source transition with an explicit bridge",
+      "should_invoke": true,
+      "request": "为两个已定片段设计一个双视频转场任务。只用一个转场模式，分别锁 A 的结束状态、B 的开始状态和桥接窗口；不能把普通镜间转场字段当成双视频转场。",
+      "input": "片段A结束：空走廊，固定广角，白昼冷光，一扇门刚关上，门牌仍在轻晃。片段B开始：同一机位与走廊，夜间暖色应急灯，门牌已经静止，远端清洁车缓慢进入。意图：让门牌晃动衰减成为时间流逝的桥，不新增人物或文字。",
+      "hard_invariants": [
+        "Use exactly one two-source transition mode and bind source A, source B, their protected intervals, and one explicit bridge window.",
+        "Preserve both endpoint compositions and define a causally legible handoff from diminishing sign motion to later stillness and changed light.",
+        "Do not invent people, text, camera movement, or source leakage beyond explicitly borrowed properties.",
+        "Keep ordinary shot-to-shot transition metadata distinct from this executable two-source task."
+      ],
+      "human_rubric": ["endpoint preservation", "bridge coherence", "temporal readability"]
+    },
+    {
+      "id": "FT-22",
+      "title": "Map a multi-panel board into one exact video task",
+      "should_invoke": true,
+      "request": "把四格分镜映射成一个多格生成任务。只选一个主模式；每格绑定 panel、shot、时间段、画面职责和连续性，不能把格子顺序当成默认时间线，也不能补未要求的对白和运镜。",
+      "input": "P1：房间全景，人物在门口停住。P2：桌面物件位置发生细小偏移。P3：人物看物件，不看屋内另一人。P4：另一人的手停在收拾动作中。总时长16秒，固定机位体系，无对白、无音乐，只保留室内底噪与一次远处电梯声。",
+      "hard_invariants": [
+        "Use exactly one multi-panel mode and provide an explicit panel-to-shot-to-time mapping that covers 0–16 seconds without gap or overlap.",
+        "Give each panel a distinct audience-facing duty and define identity, geography, prop-state, eyeline, sound, and state handoffs.",
+        "Do not infer timing solely from panel order or add dialogue, music, camera movement, CTA, logo, or decorative effects.",
+        "State which panel properties are binding references and which source attributes remain excluded."
+      ],
+      "human_rubric": ["panel mapping", "shot duty", "continuity", "sound restraint"]
+    },
+    {
+      "id": "FT-23",
+      "case_revision": 2,
+      "data_origin": "independently_authored_synthetic",
+      "behavior_validation": "pending_for_this_revision; historical results do not transfer",
+      "title": "Polish a rescue handoff without changing motive or continuity",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "只修木偶戏排练中舞台监督安排换灯的两句交代，让对白顺口；交付局部替换和必要衔接说明，不另写全剧。",
+      "input": "独立合成场景：排练暂停，右侧灯架一盏灯异常发亮。舞台监督对灯光助理说‘先让控制台断开这一路。收到断电确认，等灯凉下来，再换。’又对道具员说‘把木偶清单核完再去布景间。缺哪个，先记着，不要拿别的顶。’灯光助理留在舞台侧边等控制台回话，此时不能又出现在二楼灯控间；道具员留在道具桌旁清点，清单核完才去布景间。后续只有监督收到助理的完成报告才恢复排练。左侧灯架正常，不扩大换灯范围。不描写后台按钮操作。既定开场的布景揭示和结尾的木偶鞠躬保持不变。",
+      "hard_invariants": [
+        "Preserve the supervisor as speaker, the two distinct recipients, power-isolation confirmation and cooling before replacement, and inventory completion before the prop assistant moves rooms.",
+        "Keep the rewrite local; preserve the opening reveal and closing bow, the prohibition on substitute puppets, and the unchanged working left-side lights.",
+        "Do not put one assistant at two locations simultaneously, restore rehearsal before the completion report, or invent control-room button actions.",
+        "Review scene handoffs without claiming a newly generated full screenplay or human acceptance."
+      ],
+      "human_rubric": ["spoken naturalness", "motivation preserved without moralizing", "scene-level continuity"]
+    },
+    {
+      "id": "FT-24",
+      "case_revision": 2,
+      "data_origin": "independently_authored_synthetic",
+      "behavior_validation": "pending_for_this_revision; historical results do not transfer",
+      "title": "Plan a short demonstration without expanding its scope",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "为一部90秒的河堤喜剧示范片安排故事、人物和对白的工作顺序：主角是修钟人和邮差，从一部已选默片研究两种视觉误会机制，不借原台词；无旁白、无配乐，只要执行计划。人物资料要像一柜档案那样丰富，这句话不是页数要求。",
+      "input": "独立合成策划材料：本次示范片讲一只走慢的公共钟引发误会。另一个独立练习是六分钟的海岸地质纪录片，已定采访顺序与结尾，不能借来补本片。草案提出可试用一个外部对白改写器，但名称、访问权限和质量都未核实；当前任务不授权安装或发送素材。",
+      "hard_invariants": [
+        "Return an execution plan, not an unsolicited script, biography, audio, or external tool run.",
+        "Keep the two synthetic briefs separate; preserve the 90-second duration, two principal characters, one selected silent-film reference, two visual mechanisms, and narration/music exclusions.",
+        "Treat the archive-cabinet metaphor as qualitative depth intent, not a page, word or anecdote quota.",
+        "Treat the external dialogue adapter as optional and untested, and review capacity without inventing a universal cast cap."
+      ],
+      "human_rubric": ["actionability", "modular handoff clarity", "proportionate workload"]
+    },
+    {
+      "id": "FT-25",
+      "case_revision": 2,
+      "data_origin": "independently_authored_synthetic",
+      "behavior_validation": "pending_for_this_revision; historical results do not transfer",
+      "title": "Reject stale or speaker-changing dialogue candidates",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "把外部润色的候选合回最新剧本；不能改的地方保留。缺文件就告诉我，不要凭记忆合并。",
+      "input": "独立合成场景：外部改写包绑定旧场景revision 4及旧source hash，最新场景为revision 6但文件未提供。旧句由测绘员要求船工等潮位尺露出红线再收起临时踏板；候选改成售票员说‘汽笛一响就收板’，并把借用的测量尺写成船工继承的家传物件。没有批准任何说话人、触发条件或道具归属变更。",
+      "hard_invariants": [
+        "Do not merge against an unavailable newer source or claim its hash was checked.",
+        "Reject or flag the changed speaker, tide-marker condition and measuring-rod provenance independently of surface fluency.",
+        "Request the exact current source needed for rebasing and preserve the old artifact rather than inventing the latest scene.",
+        "Do not mark semantic review or human acceptance passed from a candidate's self-description."
+      ],
+      "human_rubric": ["precise blocker reporting", "revision integrity", "author-control preservation"]
+    },
+    {
+      "id": "FT-26",
+      "case_revision": 2,
+      "data_origin": "independently_authored_synthetic",
+      "behavior_validation": "pending_for_this_revision; historical results do not transfer",
+      "title": "Rich character material without an invented length quota",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "我说人物档案像十二卷旧书，是希望过去生活丰富，不是要求十二章或固定字数。把人物已有材料用回故事，补足选择的原因，交一部完整100秒短片，不只交流程图。",
+      "input": "独立合成创作规格：两位旧书修复师共同处理一本受潮账册，已有获准的工作经历、合作分歧和表达样例。现有提纲让其中一人突然愿意拆开自己珍藏的样书取同年代纸张，却没有给出这个选择的原因。短片限100秒，无配乐；未提供正式人物资料文件时不能声称已读或已完成正式编译。新增动机只能作为可辨认的局部提案，不能擅自升级为已批准前史。",
+      "hard_invariants": [
+        "Do not turn the twelve-volume metaphor into a chapter, page, word or anecdote quota.",
+        "Identify the unsupported choice and propose a localized, clearly provisional repair rather than padding biographies or fabricating canon approval.",
+        "When actual character sources are available, continue from structure through story and dialogue reintegration to the complete requested draft; when sources are absent, state that limit without claiming formal compilation.",
+        "Preserve duration and exclusions, and keep semantic/human acceptance distinct from automated checks."
+      ],
+      "human_rubric": ["causal richness", "proportionate expansion", "complete artifact delivery", "natural dialogue in context"]
+    },
+    {
+      "id": "FT-27",
+      "case_revision": 2,
+      "data_origin": "independently_authored_synthetic",
+      "behavior_validation": "pending_for_this_revision; historical results do not transfer",
+      "title": "Natural Chinese dialogue without removing meaningful defensiveness",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "改掉这段不像人说话、替人物处处解释的写法，但保留角色、事实和承诺，给我连着能读的对白。",
+      "input": "独立合成短场景，不是项目正典：乙按甲的要求，从堆满纸箱的库房搬来折叠梯，到了现场才发现挂钩伸手可及。甲：我希望你理解，搬运所付出的努力与这把梯子的实际必要性应当分开评价。乙：我卸了半车才抽出来！另一个受保护交换：丙：也许来得及。丁：不是去赶船，我把地图还给看守，转身就来。保留归还任务、返回承诺和丙的不确定性；没有要求添加方言或脏话。",
+      "hard_invariants": [
+        "Repair the first exchange in context while preserving the useless prop and the effort already spent; do not invent an emergency to make the prop useful.",
+        "Preserve the map-return task, promise to come back and the other speaker's uncertainty; do not mechanically delete the correction about the boat or meaningful defensiveness.",
+        "Keep speaker ownership and the follow-up response coherent, without forcing slang, profanity, moral reconciliation or a punctuation quota.",
+        "Label the result as a scene-local draft, not approved canon, a blind evaluation pass, or proof of defeating AI detectors."
+      ],
+      "human_rubric": ["speakability", "character differentiation", "contextual fidelity", "restraint"]
+    },
+    {
+      "id": "FT-28",
+      "title": "Anti-defensive adaptation preserves dramatic defeat and honest reporting",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "按融合的anti-defensive-writing-Skill修一下这个短场景，聚焦戏，最后如实说验证情况。",
+      "input": "作者锁定结局：甲救人失败，承认我输了；乙离开，双方不和解。粗稿先长篇讲两人简历，末尾旁白解释这说明团结就是力量。允许删冗余，不允许改救援结果或新增事件。现有检查记录：3项通过，2项失败，没有真人朗读。",
+      "hard_invariants": [
+        "Remove irrelevant exposition or unearned moralizing without erasing the locked rescue failure, admission of defeat, departure or unresolved relationship.",
+        "Do not turn a paper publicity principle into a demand for positive character outcomes or invented competence.",
+        "Report the two failed checks and absent human reading honestly; do not call the result fully validated or change evaluation criteria to manufacture success."
+      ],
+      "human_rubric": ["dramatic focus", "author intent", "honest validation reporting"]
+    },
+    {
+      "id": "FT-29",
+      "title": "Existing-universe lives require the actual author source",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "先从我已有的浮城剧本学人物，再给命线反演。不要沿用你刚写的通用身世。",
+      "input": "这是合成测试，不是用户剧本。原稿明确种族甲不能在日光中飞行，两位主角第一次在港口见面；一人吹嘘自己是议长但无人证实，意外碰倒水桶救人。尾声一个蒙面旅客问这是什么城。没有提供原稿文件路径；旧助手稿却说两人从小一起飞行训练、议长设计泼水救援、旅客是刺客。",
+      "hard_invariants": [
+        "Identify the missing source file instead of claiming it was read; distinguish the supplied synopsis from a full-source review.",
+        "Do not adopt the old assistant draft as canon or turn an uncorroborated rank into fact.",
+        "Respect the flight constraint, first meeting and accidental rescue; leave the cameo identity unknown.",
+        "Any optional life sketch must be explicitly provisional and anchored to available story evidence, not imported from role stereotypes."
+      ],
+      "human_rubric": ["source grounding", "universe consistency", "honest scope"]
+    },
+    {
+      "id": "FT-30",
+      "title": "Research provenance must constrain world-to-life inference",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "根据这些资料把赤潮城的世界观理清，再给女航师三条不同的命线选择。不要写完整小传或替我选，也别说只是换个地名。",
+      "input": "合成宇宙。作者原稿：两港敌对，女航师首次遇到敌港领航员时拔刀，水闸坍塌后不得不让他掌舵救城；两人不是旧识。她值夜后会打棋，常夸自己的算潮本事。官方预告的一张报纸写停战，但战因未公布。社区长文把报纸解释为南港挑起战争，附录明确标同人；文中另转述一个打不开的开发者聊天说旧灯塔属于另一维度。手游规则允许航师每局换一次风向，作者没有采用这一能力。没有年龄或战时服役记录。只能使用所给材料，不联网。",
+      "hard_invariants": [
+        "Distinguish the official in-world newspaper from an objective complete history, the fan interpretation and unofficial appendix, the inaccessible attributed chat, and the author's own continuity; do not claim external research was executed.",
+        "Do not infer the aggressor, a continuous chronology for every location, a personal war trauma, an old friendship, or an unlimited wind power from these sources.",
+        "Provide three genuinely different provisional life paths whose recurring experiences, choices and costs depend on the supported world conditions; preserve the real hostility and consequential cooperation.",
+        "Separate established anchors from invented bridges and identify evidence that would weaken each path; retain author selection and biography approval rather than declaring a winning route or exhaustive lore coverage."
+      ],
+      "human_rubric": ["world causality rather than renamed workplace", "ordinary life and individual variation", "source-tier discipline", "playable change in trust"]
+    },
+    {
+      "id": "FT-31",
+      "title": "A harmless presentation does not settle private competence",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "修正人物分析：这个送信人动作慢、看着老实，但可能很会看人。可以借鉴反派那种让别人放松戒心的外表，不是要他变坏。另两个主角我选乙和丙，第四个人还没选。先记录，不写长传。",
+      "input": "合成测试。原稿中送信人确实拿错过钥匙，偶然落下的包挡住了追兵；作者未授权改成预谋。旧分析断言他能力差、不可能有隐藏判断。没有给出特定参考电影，没有确认他在装傻。其他两人的候选已编号，不存在小传批准记录。",
+      "hard_invariants": [
+        "Separate observed manner, observer interpretation, domain-specific ability, and possible deliberate concealment; do not equate awkwardness with low intelligence or automatically declare secret genius.",
+        "Allow genuine error and accidental help to coexist with possible social insight without rewriting the source outcome as a plan.",
+        "Borrow only the proposed presentation mechanism, not villainous morality or an invented reference scene; do not claim a specific source was watched.",
+        "Record the two explicit selections while leaving the fourth open; do not fabricate formal canon lock, approved biography or a selected route for the corrected character."
+      ],
+      "human_rubric": ["layered characterization", "reference borrowing precision", "author selection fidelity", "restraint without dismissing possibility"]
+    },
+    {
+      "id": "FT-32",
+      "title": "Selected lives advance to rich review drafts without invented canon approval",
+      "execution_mode": "pending_behavioral_run",
+      "should_invoke": true,
+      "request": "甲选乙路线、乙选丙路线，现在按这两条写丰富的小传，丙还没选。不是四十页硬指标，但要真正展开人生，不是履历。",
+      "input": "合成材料：甲的乙路线是多年照料渡船后难以放弃任何尚可修复的东西，常让等船者付时间代价；乙的丙路线是反复接受转达任务而习惯不问目的，后来发现照办也有自己责任。原稿明确两人开场初识，不知对方前史；只有成年状态，未定出生年。没有正式锁定包，也没有扩写后的小传批准记录。",
+      "hard_invariants": [
+        "Proceed with explicitly requested author-review drafts for the two selected routes, without repeating selection questions or inventing formal lock or biography approval.",
+        "Do not choose the third role, merge rejected routes, invent childhood friendship between the leads, or claim the entire cast is complete.",
+        "Expand continuous pre-opening lived history and relationship changes, not a plot recap or renamed resume; preserve unknown dates and distinguish invented draft details from original facts.",
+        "Keep drafts out of canon-bound runtime and screenplay compilation, and report scope and gaps without an arbitrary length quota."
+      ],
+      "human_rubric": ["lived temporal depth", "mixed-readiness handling", "causal continuity without universal foreshadowing", "honest approval boundaries"]
+    }
+  ]
+}

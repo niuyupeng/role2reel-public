@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.3",
+  "status": "planning",
+  "request": {
+    "deliverable": "music_ip_plan",
+    "platforms": [],
+    "audience": null,
+    "video_production_owner": "user"
+  },
+  "research": {
+    "checked_at": null,
+    "window_days": null,
+    "question": null,
+    "samples": [],
+    "gaps": []
+  },
+  "topic_candidates": [],
+  "music": {
+    "source_file": null,
+    "source_sha256": null,
+    "lyrics_source": null,
+    "audio_review_status": "not_reviewed",
+    "segments": []
+  },
+  "visual_direction": {
+    "identity_source": null,
+    "style_candidates": [],
+    "selected_style": null,
+    "selection_basis": null,
+    "character_medium": null,
+    "environment_medium": null,
+    "motion_language": null
+  },
+  "wardrobe_states": [],
+  "assets": [],
+  "shots": [],
+  "provider": {
+    "product": null,
+    "model": null,
+    "mode": null,
+    "verified_at": null,
+    "evidence": null,
+    "limits": null
+  },
+  "packaging": [],
+  "checks": {
+    "structure": "not_checked",
+    "images": "not_checked",
+    "motion": "not_generated",
+    "audio_sync": "not_checked",
+    "audience": "awaiting_data",
+    "acting": "not_generated"
+  },
+  "iteration": {
+    "baseline": null,
+    "changed_variable": null,
+    "decision": "candidate",
+    "unknowns": [],
+    "next_question": null
+  },
+  "opening": {
+    "mode": null,
+    "stimulus": null,
+    "audience_question": null,
+    "visible_reaction": null,
+    "emotional_turn": null,
+    "dialogue": [],
+    "entry_lyric": null,
+    "song_response_reason": null,
+    "sound_bridge": null,
+    "intro_duration_s": null,
+    "music_duration_s": null,
+    "total_duration_s": null,
+    "timing_review_status": "not_reviewed",
+    "required_assets": []
+  },
+  "performance_contract": {
+    "visible_vocal_required": null,
+    "first_spoken_deadline_s": null,
+    "speaker_map": [],
+    "lyric_action_map": [],
+    "audio_roles": [],
+    "mouth_visibility_checks": [],
+    "sync_target": null,
+    "sync_result": "not_generated",
+    "acting_beats": [],
+    "acting_beat_fields": [
+      "story_interval",
+      "character",
+      "objective",
+      "target",
+      "stimulus",
+      "subtext",
+      "playable_action",
+      "visible_change",
+      "intensity_turn",
+      "partner_response",
+      "carryover_state",
+      "evidence_status"
+    ],
+    "lyric_action_map_note": "Optional for literal lyric illustration; continuous stories use independent story beats and sound intervals. Vocal synchronization still binds exact lyrics."
+  }
+}

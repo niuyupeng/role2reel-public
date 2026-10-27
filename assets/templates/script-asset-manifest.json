@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "project": null,
+  "script": {
+    "file": null,
+    "revision": null,
+    "sha256": null
+  },
+  "scope": "image_asset_production",
+  "video_production_owner": "user",
+  "style": null,
+  "aspect_ratio": null,
+  "status": "planned",
+  "assumptions": [],
+  "entities": {
+    "characters": [],
+    "looks": [],
+    "props": [],
+    "environments": []
+  },
+  "shots": [],
+  "assets": [],
+  "blocked_items": [],
+  "next_action": "Read the supplied script and populate actual entities, shot requirements and asset dependencies before generation.",
+  "generation_units": [],
+  "coverage_review": {
+    "status": "not_reviewed",
+    "missing_requirements": [],
+    "justified_reuse_or_omissions": []
+  }
+}
