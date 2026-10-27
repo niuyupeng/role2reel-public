@@ -10,6 +10,7 @@ import os
 import re
 import shutil
 import stat
+import sys
 import unicodedata
 from pathlib import Path
 
@@ -569,8 +570,9 @@ def initialize(
     if new_character_ids and graph_exists and not force and not profiles_only:
         raise ValueError(
             "New characters would not be linked into existing scene contracts. "
-            "Use --profiles-only for deliberately standalone profiles, or rerun with --force "
-            "and the complete initial-scene participant list."
+            "Use --profiles-only for deliberately standalone profiles. "
+            "Using --force with the complete initial-scene participant list resets managed "
+            "template files, including edited drafts; it is not an incremental character update."
         )
 
     if not profiles_only:
@@ -814,14 +816,25 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Add standalone character profiles without changing existing scene or relationship contracts",
     )
-    parser.add_argument("--force", action="store_true", help="Replace files that already exist")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Overwrite every existing managed template file for this run, including edited drafts; "
+            "not an incremental character update"
+        ),
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     characters = [item.strip() for item in args.characters.split(",") if item.strip()]
-    created, skipped = initialize(args.target, characters, args.scene, args.force, args.profiles_only)
+    try:
+        created, skipped = initialize(args.target, characters, args.scene, args.force, args.profiles_only)
+    except (ValueError, OSError) as exc:
+        print(f"ERROR {exc}", file=sys.stderr)
+        return 2
     print(f"Role2Reel workspace: {args.target.resolve()}")
     print(f"Created: {len(created)}")
     for path in created:

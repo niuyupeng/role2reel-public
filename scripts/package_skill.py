@@ -10,6 +10,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RELEASE_FILES = (
+    "VERSION",
+    "README.en.md",
+    "docs/installation.md",
+    "docs/development.md",
+    "docs/text-trials-2026-10-27.md",
+    "docs/examples/camera-segments.md",
+    "docs/examples/life-paths.md",
+    "docs/examples/compact-board.md",
+    "docs/examples/character-draft.md",
+    "references/workflow-routing.md",
+    "references/production-contracts.md",
+    "references/skill-maintenance.md",
     "assets/shot-camera-presets.json",
     "references/asset-first-production.md",
     "references/camera-body-profiles.md",

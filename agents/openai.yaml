@@ -1,4 +1,4 @@
 interface:
   display_name: "Role2Reel Public"
   short_description: "从人物、对白与电影分镜，到AI音乐IP选题、图片资产及视频提示词"
-  default_prompt: "Use $role2reel-public to preserve this material's meaning, run 命线反演 to offer several possible fictional lives when the character is underbuilt, let me choose, then carry the locked person into natural dialogue, purposeful shots, and an executable video task; for AI music IP, plan audience research, song excerpts, image assets, and provider-ready prompts while respecting who will generate the video."
+  default_prompt: "Use $role2reel-public to produce the requested story, character, storyboard, asset plan or timed video prompt, starting from the material I already have and preserving its approved facts, dialogue and timing."

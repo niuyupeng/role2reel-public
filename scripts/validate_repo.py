@@ -71,6 +71,11 @@ def load_yaml(path: Path, root: Path, errors: list[str]) -> Any:
 
 
 def validate(root: Path) -> list[str]:
+    if yaml is None:
+        return [
+            "PyYAML is required for validation; run python -m pip install -r requirements-dev.txt "
+            "from the skill directory"
+        ]
     root = root.resolve()
     errors: list[str] = []
     skill_path = root / "SKILL.md"

@@ -1,6 +1,13 @@
 # Role2Reel evaluation status
 
-## Current interpretation — 2026-09-15
+## Public quality revision — 2026-10-27
+
+The current public edition has a shorter task router, optional compact versus persistent storyboard contracts, independent installation identity, and Chinese and English entrypoints, with installation and tooling guides. [Four actual synthetic text outputs](docs/text-trials-2026-10-27.md) are now published with their input, source revision, coordinating review and limits. Baseline and post-refactor runs are kept distinct; this is not a controlled before/after quality comparison or a cross-model success rate.
+
+The scripts also provide a single missing-PyYAML diagnosis and concise expected CLI errors. Initializer `--force` still deliberately overwrites managed templates; documentation no longer recommends it for incremental character additions. Local Windows Python 3.11 regression: 241 tests discovered, 236 passed, 5 symbolic-link capability skips. Repository and export audit cover 172 allowlisted files. The release notes and CI record the exact published run. Earlier file/test counts below are historical snapshots, not a claim about every later revision.
+
+
+## Historical methodology note — 2026-09-15
 
 Historical entries below describe earlier evaluations, including a former 30,000-Han-character default. That default is superseded: deep biography now requires substantive coverage and author review, with no implicit word/page quota. Only an explicitly requested positive minimum is enforced. Historical passes are not evidence of current artistic quality; FT-26 and real author/actor validation remain pending.
 

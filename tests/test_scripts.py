@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 import os
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 import zipfile
@@ -20,6 +22,57 @@ FIXTURES = ROOT / "tests" / "fixtures"
 
 
 class InitializerTests(unittest.TestCase):
+    def test_cli_rejects_unlinked_participant_without_traceback_or_overwrite(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "project"
+            initialize(target, ["Mara"], "scene", False)
+            draft = target / "04-screenplay" / "main.fountain"
+            draft.write_text("Title: Saved draft\n\nMARA\nKeep this line.\n", encoding="utf-8")
+            before = {path.relative_to(target): path.read_bytes() for path in target.rglob("*") if path.is_file()}
+
+            result = subprocess.run(
+                [sys.executable, "-X", "utf8", "-B", str(ROOT / "scripts" / "init_project.py"),
+                 str(target), "--characters", "Mara,Ellis", "--scene", "scene"],
+                capture_output=True, text=True, encoding="utf-8", check=False,
+            )
+
+            self.assertEqual(result.returncode, 2)
+            self.assertEqual(result.stdout, "")
+            self.assertTrue(result.stderr.startswith("ERROR New characters"))
+            self.assertIn("not an incremental character update", result.stderr)
+            self.assertNotIn("Traceback", result.stderr)
+            after = {path.relative_to(target): path.read_bytes() for path in target.rglob("*") if path.is_file()}
+            self.assertEqual(after, before)
+
+    def test_cli_reports_filesystem_error_but_library_still_raises(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "existing-file"
+            target.write_text("keep this file", encoding="utf-8")
+
+            result = subprocess.run(
+                [sys.executable, "-X", "utf8", "-B", str(ROOT / "scripts" / "init_project.py"), str(target)],
+                capture_output=True, text=True, encoding="utf-8", check=False,
+            )
+
+            self.assertEqual(result.returncode, 2)
+            self.assertEqual(result.stdout, "")
+            self.assertTrue(result.stderr.startswith("ERROR "))
+            self.assertNotIn("Traceback", result.stderr)
+            self.assertEqual(target.read_text(encoding="utf-8"), "keep this file")
+            with self.assertRaises(OSError):
+                initialize(target, [], "scene", False)
+
+    def test_cli_force_help_explains_full_overwrite_scope(self) -> None:
+        result = subprocess.run(
+            [sys.executable, "-X", "utf8", "-B", str(ROOT / "scripts" / "init_project.py"), "--help"],
+            capture_output=True, text=True, encoding="utf-8", check=False,
+        )
+        self.assertEqual(result.returncode, 0)
+        help_text = " ".join(result.stdout.split())
+        self.assertIn("Overwrite every existing managed template file", help_text)
+        self.assertIn("including edited drafts", help_text)
+        self.assertIn("not an incremental character update", help_text)
+
     def test_initializes_unicode_characters_without_overwrite(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "project"
@@ -268,6 +321,19 @@ class StoryboardAuditTests(unittest.TestCase):
 
 
 class RepositoryTests(unittest.TestCase):
+    def test_validator_missing_yaml_reports_only_the_dependency_error(self) -> None:
+        result = subprocess.run(
+            [sys.executable, "-I", "-S", "-B", str(ROOT / "scripts" / "validate_repo.py"), str(ROOT)],
+            capture_output=True, text=True, encoding="utf-8", check=False,
+        )
+        self.assertEqual(result.returncode, 1)
+        self.assertEqual(result.stderr, "")
+        lines = result.stdout.splitlines()
+        self.assertEqual(len(lines), 2)
+        self.assertTrue(lines[0].startswith("ERROR PyYAML is required"))
+        self.assertIn("python -m pip install -r requirements-dev.txt", lines[0])
+        self.assertEqual(lines[1], "Validation failed: 1 error(s).")
+
     def test_repository_contract(self) -> None:
         self.assertEqual(validate(ROOT), [])
 

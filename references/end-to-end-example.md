@@ -27,7 +27,7 @@ Two fictional characters share a room with an established rule against handling 
 ```fountain
 INT. 合用房间 - 傍晚
 
-桌上，一只空玻璃杯压着未拆的信封。角色甲进门，停住。
+桌上，一只空玻璃杯压着封口重新压合的信封。角色甲进门，停住。
 
 角色甲
 桌面擦过了？
@@ -62,8 +62,9 @@ INT. 合用房间 - 傍晚
 |---|---:|---|---|---|---|
 | 01 | 0.0-4.0 | Establish the shared space and displaced evidence | Wide: glass and envelope foreground; Character A stops on entry while Character B remains by the sink | Static; preserve the distance between both characters and the table | Room tone, a final drop from the tap |
 | 02 | 4.0-8.0 | Let the ordinary test create a cover story | Hold Character B drying their hands before answering “水洒了” | Medium, no push required | Cloth against skin; Character A's question off screen |
-| 03 | 8.0-12.0 | Make A's suspicion legible without granting certainty | Insert: the lifted glass reveals two offset rings; return to A for “杯子也拿起来了？” | One motivated cut from evidence to judgment | Glass touches wood; B answers after a short hold |
-| 04 | 12.0-17.5 | Turn silence into pressure and the denial into evidence | A rotates the envelope; hold both characters as B says “信没拆” before A has asked about it | Static two-shot; end on the envelope returned to the old ring | Paper, the unprompted denial, then “我没问信。”; no score required |
+| 03 | 8.0-9.5 | Reveal the physical discrepancy | Insert: the lifted glass reveals two offset rings | Fixed close-up, same table axis | Glass touches wood |
+| 04 | 9.5-12.0 | Let evidence trigger a precise test | A looks from the rings toward B and asks “杯子也拿起来了？” | Medium on A, preserve the established eyeline | B answers “就一下” off screen after a brief hold |
+| 05 | 12.0-17.5 | Turn silence into pressure and the denial into evidence | A rotates the envelope; hold both characters as B says “信没拆” before A has asked about it | Static two-shot; end on the envelope returned to the old ring | Paper, the unprompted denial, then “我没问信。”; no score required |
 
 ## Adapter note
 

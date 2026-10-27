@@ -85,7 +85,7 @@ For production or machine checking, use `assets/templates/storyboard.yaml` as th
 
 For a production-bound repair, pair the board with `assets/templates/source-truth-ledger.yaml` and `assets/templates/shot-readiness-review.yaml`. Run the source-truth and atomic-shot gates before dynamic timing; unresolved `SOURCE_MISMATCH`, `SPLIT_REQUIRED`, unapproved clusters, infeasible hard floors, ungrounded sound carriers, or missing `POST_COMPOSITE_TEXT` overlay plans remain review blockers.
 
-Keep dialogue and sound separate. Every shot declares `dialogue.mode` as `spoken`, `nonverbal`, or `silent`, plus `state_in`, `state_out`, a handoff, and stable visual asset ID/revision references. Use `assets/templates/visual-bible.yaml` as the asset registry. For a modern board, run `scripts/audit_storyboard.py <board> --meaning <file> --scene <file> --beats <file> --visual-bible <file>` so the audit opens every bound document and compares its actual hash.
+Keep dialogue and sound separate in every delivery. In a persistent, machine-audited board, every shot declares `dialogue.mode` as `spoken`, `nonverbal`, or `silent`, plus `state_in`, `state_out`, a handoff, and stable visual asset ID/revision references. Use `assets/templates/visual-bible.yaml` as that workflow's asset registry and run `scripts/audit_storyboard.py <board> --meaning <file> --scene <file> --beats <file> --visual-bible <file>` so the audit opens every bound document and compares its actual hash. A compact board or text-only handoff may express the same relevant dialogue, sound and continuity facts directly in its requested format, identifying supplied assets and gaps without fabricating revision bindings or creating extra files. It is not a machine-audited production lock.
 
 ## Continuity package
 
@@ -93,7 +93,7 @@ Use `assets/templates/continuity.yaml` to bind the exact storyboard and visual-b
 
 ## Video task and prompt
 
-Create `assets/templates/video-task.yaml` before rendering provider prose. It binds storyboard, continuity, visual-bible, and asset-contract revisions; selects exactly one provider-neutral mode; records a continuous timeline; and carries the matching mode-specific contract. `asset-contract.yaml` denies all borrowing by default and grants only named properties to named targets and intervals.
+For a persistent, machine-audited provider task, instantiate `assets/templates/video-task.yaml` before rendering provider prose. It binds storyboard, continuity, visual-bible, and asset-contract revisions; selects exactly one provider-neutral mode; records a continuous timeline; and carries the matching mode-specific contract. `asset-contract.yaml` denies all borrowing by default and grants only named properties to named targets and intervals. A compact or text-only prompt handoff does not require these files: retain the selected mode, source protections, relevant timeline and reference duties in the prompt or accompanying notes, mark unresolved inputs, and do not call it an audited executable package. Use the selected segmented delivery contract when a full multi-shot prompt is requested.
 
 Render a provider prompt in this order:
 
@@ -107,7 +107,7 @@ Render a provider prompt in this order:
 8. intended final frame or handoff state.
 
 Separate creative intent from provider-specific syntax so the prompt can be re-adapted.
-Use `scripts/audit_video_task.py` before provider rendering. For a named provider, record a current capability check; bundled provider references contain routing logic, not frozen product limits.
+Use `scripts/audit_video_task.py` before rendering the persistent, machine-audited provider task. For any named-provider handoff, record a current capability check when the prompt relies on its features or limits; bundled provider references contain routing logic, not frozen product limits. A text-only draft may identify capabilities still requiring verification, but must not claim those capabilities are supported.
 
 ## End-to-end delivery
 

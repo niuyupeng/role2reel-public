@@ -1,10 +1,16 @@
 # Purpose-driven storyboard design
 
-Translate a bound scene revision into shots. A shot exists because the audience must perceive, infer, anticipate, or temporarily miss something. Do not let the storyboard quietly repair or reinterpret upstream meaning.
+Translate the supplied scene revision into shots. A shot exists because the audience must perceive, infer, anticipate, or temporarily miss something. Do not let the storyboard quietly repair or reinterpret upstream meaning.
 
-## Pass the upstream binding gate
+## Choose the working contract
 
-Before choosing a frame, bind the storyboard to the exact upstream revisions it is translating:
+A compact shot list, review table or prompt-only handoff may use the supplied screenplay/excerpt and concise internal notes for beats, assets and continuity. Check speaker ownership, protected action, shot duty and state handoffs against that actual source, but do not create four named upstream files or hashes solely to satisfy a small task. Use the requested delivery format and label unresolved source or asset gaps. This route is not a machine-audited production lock.
+
+Use the persistent binding contract below when the user requests a reusable production workspace, a machine-audited board, or a repair to an existing bound board. `concise` and `professional` describe the amount of creative detail; neither alone requires persistent files. For segmented prompts, the selected segmented or asset-first output contract takes precedence over per-shot export syntax.
+
+## Bind persistent, audited boards
+
+Before choosing frames for that audited contract, bind the storyboard to the exact upstream revisions it is translating:
 
 - `meaning`: the meaning ledger, approved screenplay, or other artifact that owns claim and emotional intent;
 - `scene`: the scene contract or equivalent dramatic-state source;
@@ -13,7 +19,7 @@ Before choosing a frame, bind the storyboard to the exact upstream revisions it 
 
 Each binding carries a stable artifact ID, revision, and SHA-256. If any bound source changes, mark the storyboard stale and review the affected shots. Do not silently copy a changed line, beat, or ending state into an old storyboard. The binding proves document identity, not artistic fidelity; a person still checks that the shots preserve the intended meaning.
 
-For a modern board, pass the actual four files to the audit rather than copying
+For a persistent, machine-audited board, pass the actual four files to the audit rather than copying
 hash-shaped strings into the storyboard:
 
 `python scripts/audit_storyboard.py <storyboard.yaml> --meaning <meaning-ledger-or-approved-draft> --scene <scene-contract.yaml> --beats <beat-map.yaml> --visual-bible <visual-bible.yaml>`
@@ -86,9 +92,9 @@ Dialogue mode is not a sound mix. Keep ambience, effects, off-screen sources, ro
 
 ## Bind visual assets per shot
 
-Build `visual-bible.yaml` before a professional board. Give every recurring character look, wardrobe state, prop, location, voice, and reference source a stable `asset_id` and `revision`. A shot refers to those exact pairs; a name such as “the mother” is not a revision binding.
+For a persistent, machine-audited board, build `visual-bible.yaml` first. Give every recurring character look, wardrobe state, prop, location, voice, and reference source a stable `asset_id` and `revision`. A shot refers to those exact pairs; a name such as “the mother” is not a revision binding. A compact or prompt-only task instead names the actual supplied assets and their roles in its internal notes or requested asset list; it still checks identity and state without pretending those names are audited revision bindings.
 
-Each per-shot asset reference names:
+Each per-shot asset reference in the audited contract names:
 
 - the visual-bible asset ID and revision;
 - its role in this shot;
@@ -151,6 +157,6 @@ Treat the first failed invariant as the repair boundary:
 - an unauthorized reference property is removed or explicitly authorized, not silently inherited;
 - an impossible action or performance timeline is retimed while preserving shot duty and beat order.
 
-After a repair, rerun the structural audit and then review meaning, playability, and cinematic value manually. Linters cannot decide whether the chosen shot is good.
+After a repair to a machine-audited board, rerun its structural audit; for a compact task, recheck the affected source, assets, timing and handoffs directly. In either route, review meaning, playability, and cinematic value separately. Linters cannot decide whether the chosen shot is good.
 
-Use `assets/templates/visual-bible.yaml`, `storyboard.yaml`, `storyboard.csv`, and `continuity.yaml` when persistent production artifacts are needed. Treat YAML as the authoritative professional contract; CSV is a flat review/export view and repeats binding fields where needed.
+Use `assets/templates/visual-bible.yaml`, `storyboard.yaml`, `storyboard.csv`, and `continuity.yaml` when persistent production artifacts are needed. Within that persistent workflow, treat YAML as the authoritative contract; CSV is a flat review/export view and repeats binding fields where needed.

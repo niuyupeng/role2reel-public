@@ -61,14 +61,16 @@ MOTHER (V.O.) ^
 
 
 class SceneGuidanceContractTests(unittest.TestCase):
-    def test_line_cap_is_a_ceiling_and_mute_pass_deletes_redundant_speech(self) -> None:
+    def test_scoped_dialogue_contract_retains_caps_and_evidence_limits(self) -> None:
         skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        contracts = (ROOT / "references" / "production-contracts.md").read_text(encoding="utf-8")
         scene_guidance = (ROOT / "references" / "scene-dialogue.md").read_text(encoding="utf-8")
 
-        self.assertIn("A line cap is a ceiling, never a quota", skill)
+        self.assertIn("references/production-contracts.md", skill)
+        self.assertIn("A line cap is a ceiling, never a quota", contracts)
         self.assertIn("Run a **mute pass**", scene_guidance)
-        self.assertIn("same state change and next choice remain legible, delete it", skill)
-        self.assertIn("evaluation_scope: light behavior fixture; not deep-biography evidence", skill)
+        self.assertIn("preserving author-locked lines and genre", contracts)
+        self.assertIn("evaluation_scope: light behavior fixture; not deep-biography evidence", contracts)
 
 
 if __name__ == "__main__":
