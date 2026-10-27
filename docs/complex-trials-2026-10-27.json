@@ -1,0 +1,271 @@
+{
+  "schema": 1,
+  "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+  "phase": "synthetic text development trials",
+  "trials": [
+    {
+      "id": "E1",
+      "title": "Workshop handoff: three people, two locations",
+      "page": "docs/examples/workshop-handoff.md",
+      "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+      "request_sha256_lf": "b4ff426970c2782056b05e06fe5c3dab9e33bb8d6e7f8247b40fd4365e1d3b0d",
+      "output_sha256_lf": "b9fd8c32e2ade1cfaae29db8522e090b42637fbaeece6406d4847b6d5a478597"
+    },
+    {
+      "id": "F1",
+      "title": "Locked APS-C camera enrichment",
+      "page": "docs/examples/complex-F1.md",
+      "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+      "request_sha256_lf": "75f896ddc986ee20a0091e7674d496ccb37847944faf9d53e1ba0fa829804b19",
+      "output_sha256_lf": "aca104685a7a356d41073b650de001fecead263479c759cc46a5e2a41f1b8622"
+    },
+    {
+      "id": "G1",
+      "title": "Sealed letter: knowledge and purposeful repetition",
+      "page": "docs/examples/complex-G1.md",
+      "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+      "request_sha256_lf": "7f217637c2039ef53992f19645828bd1d48f3e302ba5f1088728a534b50a2953",
+      "output_sha256_lf": "2bfdfae52fa4154386a3a1db6c3aaa7de965034a1b204a1c1e21e94113c85497"
+    },
+    {
+      "id": "H2",
+      "title": "Identical umbrellas: custody without relabelling",
+      "page": "docs/examples/complex-H2.md",
+      "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+      "request_sha256_lf": "3ee087b42105b24ef3f727b3fb572fa5b10e2821844e5fa3b72703016ceb53d4",
+      "output_sha256_lf": "67c28c0c0b2a8daebd929777a3145e3b5897c017365799f826aef59bf251ad17"
+    },
+    {
+      "id": "I2",
+      "title": "An impossible two-second speech",
+      "page": "docs/examples/complex-I2.md",
+      "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+      "request_sha256_lf": "f4cdbf1b9f89e78d78f85975982a09772d3d8aa8ed40ca0dcd929eac5df0f073",
+      "output_sha256_lf": "48e88e1f0f126aa64245b732fb8b19005fc621b61720b235ffc6ed5f7421a7e3"
+    },
+    {
+      "id": "J2",
+      "title": "Six reference plans with an invalid room candidate",
+      "page": "docs/examples/complex-J2.md",
+      "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+      "request_sha256_lf": "d746c6379c76c157f10da2e8455fc670114286ae87b796bbcb2f2815f858fc28",
+      "output_sha256_lf": "7aab2e2a910b53fc3bf0cfaeb17ac262a70c4a1e77e44ba4e211ec8635a6dfa8"
+    },
+    {
+      "id": "E3",
+      "title": "Workshop handoff: independent repeat",
+      "page": "docs/examples/complex-E3.md",
+      "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+      "request_sha256_lf": "b4ff426970c2782056b05e06fe5c3dab9e33bb8d6e7f8247b40fd4365e1d3b0d",
+      "output_sha256_lf": "60e4a4838a3089ee86815e2ef5bca13ca1496695ec1ee048271c4515609d6c07"
+    },
+    {
+      "id": "F3",
+      "title": "Locked APS-C enrichment: independent repeat",
+      "page": "docs/examples/complex-F3.md",
+      "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+      "request_sha256_lf": "75f896ddc986ee20a0091e7674d496ccb37847944faf9d53e1ba0fa829804b19",
+      "output_sha256_lf": "40fe68020a6efd4d27adca84528cda5f2d64b293cc4a57f352f953b04ac3e86b"
+    },
+    {
+      "id": "K3",
+      "title": "Pour, speak and sip: liquid-state continuity",
+      "page": "docs/examples/complex-K3.md",
+      "source_commit": "1e77689e8e00a2a93394854a607b882b4a5978ff",
+      "request_sha256_lf": "8ede806771a85c9dfef9bed7722cec3e988df27c2d3382b561647d78720114e4",
+      "output_sha256_lf": "2c8f9d19fa15719c219bcca6d3baa27ef0343a97f0c5b1d2562c487196afea4f"
+    }
+  ],
+  "execution_runs": [
+    {
+      "id": "round-one",
+      "read_files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6a1e4ce6429a28f4292a491802f9f572402464630af4afca2ab2a6971a8bf664"
+        },
+        {
+          "path": "references/output-contracts.md",
+          "sha256": "f0a6c0cf0e80a3c0d32562278438414c3fdbc0310257132dd59e4e333c64ad9a"
+        },
+        {
+          "path": "references/asset-first-production.md",
+          "sha256": "bdaf4a7f83e7234684f569c1600d571369254afae55ec9f9b80d2a79c50de39e"
+        },
+        {
+          "path": "references/segmented-prompt-delivery.md",
+          "sha256": "81876f359d0e1482745387d08dc5498e7b019538c4248a8fb5d739c3b1ec0179"
+        },
+        {
+          "path": "references/shot-camera-matching.md",
+          "sha256": "c06be21b34d05b45560dee68a860fbc37ec7b8e57774dc12d26ef07c8084cbc9"
+        },
+        {
+          "path": "references/cinematography-lighting.md",
+          "sha256": "6e7a22c86882fc433a5bd94fa5d90a5d42d7e9e22cf50cdc4667a27a03b83602"
+        },
+        {
+          "path": "references/spatial-layout-design.md",
+          "sha256": "edd0df74fc1880c4cf698673110f0f813b1c6d93ddf14cf5ed7d24270736f1f6"
+        },
+        {
+          "path": "references/scene-dialogue.md",
+          "sha256": "6e4dd1388f83b42bb0916a5972f86792bb23da61684b516736e34e072cf158ca"
+        },
+        {
+          "path": "references/story-prose-craft.md",
+          "sha256": "6424966929599502f17721dc95f0b5f1f8b7daee052cfcf245370277b80e2c70"
+        },
+        {
+          "path": "references/natural-dialogue-repair.md",
+          "sha256": "38fee9b86dea3bc3a74be17c9a115fa3ceb0ef2260de23115e82b6c8d51d9540"
+        },
+        {
+          "path": "references/character-engine.md",
+          "sha256": "2ecd64221bbbeca4328214009bbc6ac91685c3965fe961e6b923494c269689c3"
+        },
+        {
+          "path": "references/production-contracts.md",
+          "sha256": "2519f5af8888c22c83ecad20acee4853c3dbf386c39a834338f95cce1071c073"
+        },
+        {
+          "path": "assets/shot-camera-presets.json",
+          "sha256": "9c20600a476f98482a9533792436d664efe18c00fb90f3ca64ce4d81f927718f"
+        },
+        {
+          "path": "references/storyboard.md",
+          "sha256": "494afda084b357f170edb01342fa09070a5ffb6a5772926aab80272943e5dad3"
+        },
+        {
+          "path": "references/source-truth-gate.md",
+          "sha256": "5a0af31af47c7246e24464280abd1cdac5177100beb406b3a379f2c5a660642d"
+        },
+        {
+          "path": "references/atomic-shot-gate.md",
+          "sha256": "2651b3936f14f706e1f39ec28eb1909ed124b9f8d3fb37991c1665dc32b961eb"
+        },
+        {
+          "path": "references/dynamic-shot-timing.md",
+          "sha256": "c9d33508378b8994c35fa9c9bc952255621f10ccceb1bb19059faf073cc1fc4e"
+        }
+      ],
+      "model_identifier": "unknown",
+      "reasoning_effort": "unknown",
+      "temperature": "unknown"
+    },
+    {
+      "id": "round-two",
+      "read_files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6a1e4ce6429a28f4292a491802f9f572402464630af4afca2ab2a6971a8bf664"
+        },
+        {
+          "path": "references/output-contracts.md",
+          "sha256": "f0a6c0cf0e80a3c0d32562278438414c3fdbc0310257132dd59e4e333c64ad9a"
+        },
+        {
+          "path": "references/segmented-prompt-delivery.md",
+          "sha256": "81876f359d0e1482745387d08dc5498e7b019538c4248a8fb5d739c3b1ec0179"
+        },
+        {
+          "path": "references/asset-first-production.md",
+          "sha256": "bdaf4a7f83e7234684f569c1600d571369254afae55ec9f9b80d2a79c50de39e"
+        },
+        {
+          "path": "references/shot-camera-matching.md",
+          "sha256": "c06be21b34d05b45560dee68a860fbc37ec7b8e57774dc12d26ef07c8084cbc9"
+        },
+        {
+          "path": "references/cinematography-lighting.md",
+          "sha256": "6e7a22c86882fc433a5bd94fa5d90a5d42d7e9e22cf50cdc4667a27a03b83602"
+        },
+        {
+          "path": "references/spatial-layout-design.md",
+          "sha256": "edd0df74fc1880c4cf698673110f0f813b1c6d93ddf14cf5ed7d24270736f1f6"
+        },
+        {
+          "path": "references/script-to-assets.md",
+          "sha256": "b2302b35490a86436a8808b150a72c9ef12701256bbfc337257b377c87733829"
+        },
+        {
+          "path": "references/shot-reference-planning.md",
+          "sha256": "cd0da614461ce29e8ab4fe1ed1b83b2a01f76705055d7731656b87225d41f783"
+        },
+        {
+          "path": "references/source-truth-gate.md",
+          "sha256": "5a0af31af47c7246e24464280abd1cdac5177100beb406b3a379f2c5a660642d"
+        },
+        {
+          "path": "references/dynamic-shot-timing.md",
+          "sha256": "c9d33508378b8994c35fa9c9bc952255621f10ccceb1bb19059faf073cc1fc4e"
+        },
+        {
+          "path": "references/atomic-shot-gate.md",
+          "sha256": "2651b3936f14f706e1f39ec28eb1909ed124b9f8d3fb37991c1665dc32b961eb"
+        },
+        {
+          "path": "assets/shot-camera-presets.json",
+          "sha256": "9c20600a476f98482a9533792436d664efe18c00fb90f3ca64ce4d81f927718f"
+        }
+      ],
+      "model_identifier": "unknown",
+      "reasoning_effort": "unknown",
+      "temperature": "unknown"
+    },
+    {
+      "id": "round-three",
+      "read_files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6a1e4ce6429a28f4292a491802f9f572402464630af4afca2ab2a6971a8bf664"
+        },
+        {
+          "path": "references/output-contracts.md",
+          "sha256": "f0a6c0cf0e80a3c0d32562278438414c3fdbc0310257132dd59e4e333c64ad9a"
+        },
+        {
+          "path": "references/asset-first-production.md",
+          "sha256": "bdaf4a7f83e7234684f569c1600d571369254afae55ec9f9b80d2a79c50de39e"
+        },
+        {
+          "path": "references/segmented-prompt-delivery.md",
+          "sha256": "81876f359d0e1482745387d08dc5498e7b019538c4248a8fb5d739c3b1ec0179"
+        },
+        {
+          "path": "references/shot-camera-matching.md",
+          "sha256": "c06be21b34d05b45560dee68a860fbc37ec7b8e57774dc12d26ef07c8084cbc9"
+        },
+        {
+          "path": "references/production-contracts.md",
+          "sha256": "2519f5af8888c22c83ecad20acee4853c3dbf386c39a834338f95cce1071c073"
+        },
+        {
+          "path": "assets/shot-camera-presets.json",
+          "sha256": "9c20600a476f98482a9533792436d664efe18c00fb90f3ca64ce4d81f927718f"
+        },
+        {
+          "path": "references/cinematography-lighting.md",
+          "sha256": "6e7a22c86882fc433a5bd94fa5d90a5d42d7e9e22cf50cdc4667a27a03b83602"
+        },
+        {
+          "path": "references/dynamic-shot-timing.md",
+          "sha256": "c9d33508378b8994c35fa9c9bc952255621f10ccceb1bb19059faf073cc1fc4e"
+        }
+      ],
+      "model_identifier": "unknown",
+      "reasoning_effort": "unknown",
+      "temperature": "unknown"
+    }
+  ],
+  "generator_count": 3,
+  "review": "coordinator and a separate model reviewer; not blinded human review",
+  "model_metadata": "Inherited session settings; exact serving identifier, temperature, seed and reasoning configuration were not exposed. No cross-model comparison claimed.",
+  "fingerprint_rule": "SHA-256 of UTF-8 request/response text between original-request/output markers, with LF endings and one terminal LF if originally absent.",
+  "limitations": [
+    "Seven distinct requests, nine outputs; two cases repeated with fresh execution agents, other cases once.",
+    "All cases within each run share one agent context; no independence or statistical success-rate claim.",
+    "Read-file hashes identify inspected source files, not proof of semantic reliance.",
+    "No image/audio/video generation, real user adoption, platform execution, or blinded human review."
+  ]
+}

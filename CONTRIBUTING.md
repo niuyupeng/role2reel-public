@@ -30,6 +30,8 @@ When changing behavior:
 5. Preserve user scope and authorization boundaries.
 6. Update `THIRD_PARTY_NOTICES.md` when third-party material is incorporated or adapted.
 
+For reproducible public releases, follow [the maintainer guide](docs/releasing.md). Tag builds verify the exact version and committed allowlist, then publish checked ZIP/manifest/checksum assets. Use [the English tooling guide](docs/development.en.md) for script scope and limits, and retain complete synthetic trial outputs when reporting behavior changes.
+
 ## Pull requests
 
 Explain the observed failure, the narrow mechanism changed, the test evidence, and any trade-off. Avoid acceptance-rate claims without blinded comparable evaluation.

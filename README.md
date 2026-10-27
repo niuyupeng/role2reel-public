@@ -66,6 +66,12 @@ $role2reel-public
 
 两例的输入、原始输出、所用版本、复核范围和不足见 [文本试做记录](docs/text-trials-2026-10-27.md)。
 
+### 多人物、多道具与跨场景
+
+[查看完整英文案例：工作间的物品交接](docs/examples/workshop-handoff.md)。三个人、两处空间、两枚编号物品和一个袋子，分三段生成；每段先列资产，再给完整摄影与动作正文和剪辑区间。物品归属、人物看见信息的先后、留在画外的角色都要保持一致。
+
+更多复杂请求、重复试做、不可执行时长的处理和实际局限见 [多轮复杂案例记录](docs/complex-trials-2026-10-27.md)。这里公开原始答案，方便检查具体行为，不用软件测试数代替创作结果。
+
 ## 为什么这样组织
 
 - **保护原稿。** 已确认的对白、人物关系、关键动作、时长和镜界继续有效；“更电影化”不等于改写授权。
@@ -103,6 +109,7 @@ $role2reel-public
 
 - [安装、更新、卸载和常见问题](docs/installation.md)
 - [可选脚本工具、外部项目目录与本地校验](docs/development.md)
+- [English usage guide](docs/usage.en.md) · [English installation](docs/installation.en.md) · [发布、校验与回退流程](docs/releasing.md)
 - [贡献方式](CONTRIBUTING.md) · [安全说明](SECURITY.md) · [来源与第三方许可](THIRD_PARTY_NOTICES.md)
 
 公开版调用名和目录均为 `role2reel-public`，可与内部 `role2reel` 并存，更新时互不覆盖。公司信息、真实项目剧本、素材、聊天和凭据留在使用者自己的项目中。旧首包的迁移说明见安装页。

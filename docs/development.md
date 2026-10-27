@@ -1,5 +1,7 @@
 # 可选本地工具 · Optional tooling
 
+[English tooling guide](development.en.md) · [安装与安全更新](installation.md)
+
 普通文字任务直接调用 Skill；以下工具用于维护可追溯项目或验证软件，不是创作前置门槛。命令从技能/仓库根目录执行；Windows可使用已选定的Python 3.11+解释器，不替换用户的虚拟环境。
 
 ## 项目放在独立目录
@@ -35,6 +37,8 @@ Windows将 `python3` 换成选定的 `python`。PyYAML用于YAML模板及对应�
 `--tracked` 隐私检查要求Git检出；安装自ZIP时使用 `python3 scripts/audit_public_export.py` 按打包白名单检查。另可通过 `--private-rules` 指向**仓库外**的本地敏感词JSON数组。扫描只是审查的一部分，不证明语义隐私已完全验证。
 
 打包默认写入 `dist/role2reel-public.zip`。根目录固定为 `role2reel-public/`，仅包含显式白名单文件；`VERSION` 标明包版本。发布时将ZIP及对应SHA-256一同上传到匹配的GitHub tag，Release指向准确提交。
+
+版本化发布另用 `scripts/build_release.py --tag v<实际VERSION> --output-dir dist`，要求匹配标签指向当前提交且白名单中的受跟踪源文件干净，产出版本ZIP、来源/逐文件哈希清单及 `SHA256SUMS.txt`；版本标签触发发布工作流。可选 `scripts/install_release.py` 只保守更新其自身管理且未修改的安装，具体参数、备份和回滚见[安装维护页](installation.md)。普通文字使用不需要运行这些脚本。
 
 ## 按任务选择工具
 

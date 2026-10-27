@@ -1,6 +1,16 @@
 # Role2Reel evaluation status
 
-## Public quality revision — 2026-10-27
+## Production-readiness revision — 2026-10-27, version 2026.10.27.4
+
+[Three rounds of complex text trials](docs/complex-trials-2026-10-27.md) retain nine complete responses to seven synthetic requests, including fresh repeats of the multi-person handoff and locked APS-C enrichment. The coordinator and a separate model reviewer found no hard constraint failure in these nine outputs. One deliberately infeasible request is correctly left unfinished with its exact conflict explained; it is not counted as a successfully generated two-second clip. The record includes complete inputs/outputs, source commit, read-reference hashes, assumptions and review limits. Model identifiers/settings were not exposed and remain unknown. This is not a cross-model benchmark, blinded human review or evidence of media quality.
+
+English installation, updates/rollback, optional tools and actual production usage are now documented end to end. Release tooling binds VERSION, tag and exact Git commit, builds a deterministic allowlisted archive with manifests/checksums, verifies uploaded assets before publishing and refuses to replace differing released bytes. The checked installer preserves previous versions outside the skill discovery directory and refuses edited or unmanaged installations. A real Windows redirected-output failure on Chinese backup paths was reproduced, fixed and independently rerun successfully; ordinary generated Python caches no longer incorrectly block updates.
+
+Local Windows Python 3.11: **263 tests discovered, 257 passed, 6 skipped** because local symbolic-link creation was unavailable. Windows junction refusal and archive symlink rejection passed. Repository validation and export privacy audit cover **192 allowlisted files**; the verified release adds one generated `.release.json` metadata member. The nine published request/response fingerprints were independently recalculated. The tag workflow runs its four Windows/Ubuntu × Python 3.11/3.13 jobs before publication; the actual workflow run and attached release identify the published result. Earlier counts below are historical.
+
+No new image, audio or video was generated or accepted. Real audience preference, author adoption, physical timing, per-provider performance and host-UI skill discovery remain separate verification tasks. The full English user/developer guides do not imply that every specialized reference has been translated from Chinese.
+
+## Previous public quality revision — 2026-10-27
 
 The current public edition has a shorter task router, optional compact versus persistent storyboard contracts, independent installation identity, and Chinese and English entrypoints, with installation and tooling guides. [Four actual synthetic text outputs](docs/text-trials-2026-10-27.md) are now published with their input, source revision, coordinating review and limits. Baseline and post-refactor runs are kept distinct; this is not a controlled before/after quality comparison or a cross-model success rate.
 
